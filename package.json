@@ -1,0 +1,24 @@
+{
+  "name": "nookbook",
+  "version": "1.0.0",
+  "description": "A social media platform (similar to Facebook) focused on Animal Crossing New Horizons players.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TaigaLee/nookbook.git"
+  },
+  "author": "Taiga Lee, Matthew Keane, Cliff Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TaigaLee/nookbook/issues"
+  },
+  "homepage": "https://github.com/TaigaLee/nookbook#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.7"
+  }
+}
