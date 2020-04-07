@@ -1,0 +1,14 @@
+body {
+  background-color: #5bd6ba;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Fredoka One", cursive;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 10px;
+}

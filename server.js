@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const PORT = process.env.PORT;
 
+app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 
@@ -19,7 +20,11 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.send("HELLO WORLD");
+  res.render("home.ejs");
+});
+
+app.get("*", (req, res) => {
+  res.render("404.ejs");
 });
 
 http.listen(PORT, () => {
