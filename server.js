@@ -7,6 +7,8 @@ const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const PORT = process.env.PORT;
 
+require("./db/db.js");
+
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
