@@ -7,6 +7,17 @@ h1 {
   font-family: "Fredoka One", cursive;
 }
 
+nav {
+  background-color: #a5601b;
+  font-family: "Acme", sans-serif;
+  padding: 3px;
+}
+
+nav a {
+  color: gold;
+  font-size: 1.3em;
+}
+
 footer {
   position: absolute;
   width: 100%;

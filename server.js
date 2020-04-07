@@ -19,6 +19,9 @@ app.use(
   })
 );
 
+const authController = require("./controllers/authController.js");
+app.use("/auth", authController);
+
 app.get("/", (req, res) => {
   res.render("home.ejs");
 });
