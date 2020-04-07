@@ -11,10 +11,11 @@ A social media platform (similar to Facebook) focused on Animal Crossing New Hor
   * Switch ID number
   * IRL Location
 * Once registered and logged in, users will have the ability to
-* Add friends
-* View boards for turnip prices, hot items, items on sale, DIY recipes, etc.
-* Chat with friends to arrange island visits
-* Post, view, comment on, and rate outfits and home designs
+  * Add friends
+  * View boards for turnip prices, hot items, items on sale, DIY recipes, etc.
+  * Chat with friends to arrange island visits
+  * Post, view, comment on, and rate outfits and home designs
+* Upon login daily, users will be prompted to enter in information about their turnip prices, furniture they have for sale, and DODO code if they please. 
 
 # Wireframes
 
