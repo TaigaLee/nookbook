@@ -52,3 +52,11 @@ Entry page (after login)
 Rating page (To rate other players outfits and islands)
 
 ![eighth wireframe (rating page)](https://i.imgur.com/So7hwnU.png)
+
+Add outfits/islands to Rating page
+
+![ninth wireframe(adding outfits/islands)](https://i.imgur.com/8pDke3B.png)
+
+Rating show page
+
+![tenth wireframe(rating show page)](https://i.imgur.com/KqnpN64.png)
