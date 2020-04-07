@@ -1,5 +1,5 @@
 # nookbook
-A social media platform (similar to Facebook) focused on Animal Crossing New Horizons players. 
+A social media platform (similar to Facebook) focused on Animal Crossing New Horizons players.
 
 # User Story
 * Before using the app, users must sign up for an account
@@ -17,3 +17,24 @@ A social media platform (similar to Facebook) focused on Animal Crossing New Hor
 * Post, view, comment on, and rate outfits and home designs
 
 # Wireframes
+
+* Login page
+![first wireframe(login screen)](https://i.imgur.com/PpFIJ1i.png)
+
+* Navigation page
+![second wireframe(nav screen)](https://i.imgur.com/Ea85va2.png)
+
+* Chat page
+![third wireframe(chat screen)](https://i.imgur.com/nCMe8AZ.png)
+
+* Item screen
+![fourth wireframe(item screen)](https://i.imgur.com/IM3RNBb.png)
+
+* Profile page
+![fifth wireframe(profile screen)](https://i.imgur.com/DHLHQrz.png)
+
+* Stalk market screen (for turnips)
+![sixth wireframe(turnip screen)](https://i.imgur.com/VW2zuHu.png)
+
+* Entry page (after login)
+![seventh wireframe(entry page)](https://i.imgur.com/EemQi0c.png)
