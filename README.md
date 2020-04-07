@@ -1,4 +1,5 @@
 # nookbook
+A social media platform (similar to Facebook) focused on Animal Crossing New Horizons players. 
 
 # User Story
 * Before using the app, users must sign up for an account
