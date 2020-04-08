@@ -5,6 +5,7 @@ body {
 
 header {
   text-align: center;
+  min-height: 20vh
 }
 
 h1 {
@@ -27,15 +28,29 @@ nav a:hover {
   text-decoration: underline;
 }
 
+nav.auth {
+  background-color: #5bd6ba;
+  text-align: right;
+}
+
+nav.auth a{
+  color: black;
+}
+
 footer {
   text-align: center;
+  min-height: 15vh;
 }
+
+div.container {
+  padding: 0 10%;
+  min-height: 60vh;
+}
+
 
 div.usershow {
   display: flex;
   flex-flow: row wrap;
-
-  padding: 0 10%;
 }
 div.profile {
   border: 2px solid black;
