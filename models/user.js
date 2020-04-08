@@ -15,8 +15,7 @@ const userSchema = new mongoose.Schema({
   friendCode: String,
   island: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Island",
-    required: true
+    ref: "Island"
   },
   location: String,
   friend: []
