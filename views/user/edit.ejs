@@ -1,9 +1,30 @@
 <%- include("../partials/header.ejs") %>
 
 <h2>Edit</h2>
-<p><%= userToEdit %></p>
-<form>
-    <input type="file" name="profile-picture">
+
+<form action="/auth/register" method="post">
+  <fieldset>
+    <div>
+      <label for="username">Username: </label>
+      <input type="text" name="username" id="username" placeholder="Desired Username">
+    </div>
+    <div>
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password" placeholder="Desired Password">
+    </div>
+    <div>
+      <label for="friendCode">Switch Friend Code: </label>
+      <input type="text" name="friendCode" id="friendCode" placeholder="Friend Code">
+    </div>
+    <div>
+      <label for="location">Location (optional): </label>
+      <input type="text" name="location" id="location" placeholder="Location">
+    </div>
+  </fieldset>
+  <button>Edit Account</button>
 </form>
 
+<form method=POST action="/user?_method=DELETE">
+    <button>delete</button>
+</form>
 <%- include("../partials/footer.ejs")%>

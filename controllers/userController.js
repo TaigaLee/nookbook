@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
 
+// show current user profile
 router.get('/', async (req, res, next) => {
   try {
     if (req.session.loggedIn) {
@@ -16,22 +17,23 @@ router.get('/', async (req, res, next) => {
   } catch (err) {
     next(err)
   }
-})
+}) // show current user profile
 
-// add profile picture router 
+// add profile picture -- this is for test, can be modified and adjusted
 router.get('/add-profile', (req, res) => {
   if (req.session.loggedIn) {
     res.render('user/add-profile.ejs')
   } else {
     res.redirect('/auth/login')
   }
-})
+}) // add profile picture router 
 
 router.post('/add-profile', (req, res) => {
   res.send('after add profile picture action')
 })
 
-// edit user setting
+// edit route
+// show edit ejs
 router.get('/edit', async (req, res, next) => {
   try {
     if (req.session.loggedIn) {
@@ -44,6 +46,20 @@ router.get('/edit', async (req, res, next) => {
     }
   } catch (err) {
     next(err)
+  }
+}) // show edit ejs
+
+// put method
+router.put('/edit') // edit route
+
+// delete route
+router.delete('/', async (req, res, next) => {
+  try {
+    const deletedUser = await User.deleteOne({ username: req.session.username })
+    await req.session.destroy()
+    res.redirect('/')
+  } catch (err) {
+    next(err);
   }
 })
 
@@ -64,7 +80,7 @@ router.get('/:username', async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-})
+}) // show other account profile
 
 
 module.exports = router
