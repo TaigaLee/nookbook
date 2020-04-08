@@ -1,0 +1,27 @@
+<%- include("../partials/header.ejs") %>
+<h2>Add an Island</h2>
+
+<h3><%= message %></h3>
+
+<form>
+	<fieldset>
+		<div>
+			<label for="name">Island Name: </label>
+			<input type="text" name="name" id="name" />
+		</div>
+		<div>
+			<label for="fruit">Fruit: </label>
+			<select name="fruit" id="fruit">
+				<option value="">Select Fruit</option>
+				<% fruits.forEach( (fruit) => {%>
+					<option value="<%=fruit%>"><%= fruit %></option>
+				<% }) %>
+			</select>
+		</div>		
+	</fieldset>
+	<button>Submit</button>
+</form>
+
+
+
+<%- include("../partials/footer.ejs") %>

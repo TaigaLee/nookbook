@@ -6,7 +6,7 @@ const islandSchema = new mongoose.Schema({
     required: true
   },
   fruit: {
-    name: String,
+    type: String,
     required: true
   },
   villagers: [{}]

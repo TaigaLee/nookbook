@@ -31,6 +31,9 @@ app.use((req, res, next) => {
 const authController = require("./controllers/authController.js");
 app.use("/auth", authController);
 
+const islandController = require("./controllers/islandController")
+app.use("/island", islandController)
+
 app.get("/", (req, res) => {
   res.render("home.ejs");
 });
