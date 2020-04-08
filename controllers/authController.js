@@ -33,4 +33,8 @@ router.post("/register", async (req, res, next) => {
   }
 });
 
+router.get("/login", (req, res) => {
+	res.render("auth/login.ejs")
+})
+
 module.exports = router;

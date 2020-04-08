@@ -1,6 +1,7 @@
 body {
   background-color: #5bd6ba;
   text-align: center;
+  font-family: "Acme", sans-serif;
 }
 
 h1 {
@@ -16,6 +17,11 @@ nav {
 nav a {
   color: gold;
   font-size: 1.3em;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 footer {
