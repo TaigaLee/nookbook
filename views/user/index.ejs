@@ -1,6 +1,8 @@
 <%- include("../partials/header.ejs") %>
-
+<% if(!notcurrentUser) { %>
 <a href="/user/add-profile">add profile picture</a>
+<a href="/user/edit">Edit User</a>
+<% } %>
 <div class='usershow'>
     <div class='profile'>
         <h3><%= user.username %></h3>
@@ -9,7 +11,7 @@
 
     <div class=status>
         <div>Status: constructing</div>
-        <% if(notcurrentUser) { %>
+        <% if(notcurrentUser && loggedIn) { %>
         <button>add friend</button>
         <% } %>
     </div>
