@@ -1,9 +1,9 @@
 <%- include("../partials/header.ejs") %>
-<h2>Add an Island</h2>
+<h2>Add Island Info</h2>
 
 <h3><%= message %></h3>
 
-<form>
+<form method=POST action="/island/new">
 	<fieldset>
 		<div>
 			<label for="name">Island Name: </label>

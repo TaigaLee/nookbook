@@ -20,10 +20,10 @@ router.post("/register", async (req, res, next) => {
 			req.body.password = bcrypt.hashSync(req.body.password, salt)
 			const createdUser = await User.create(req.body)
 			req.session.loggedIn = true
-			req.session.userId = user._id
-			req.session.username = user.username
-			req.session.message = `Welcome back, ${user.username}!`
-			res.redirect("/")
+			req.session.userId = createdUser._id
+			req.session.username = createdUser.username
+			req.session.message = `Welcome new user: ${createdUser.username}!`
+			res.redirect("/island/new")
   		}
   	} else {
   		req.session.message = "Passwords must match"
