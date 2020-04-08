@@ -19,7 +19,10 @@ router.post("/register", async (req, res, next) => {
 			const salt = bcrypt.genSaltSync(10)
 			req.body.password = bcrypt.hashSync(req.body.password, salt)
 			const createdUser = await User.create(req.body)
-			console.log(createdUser)
+			req.session.loggedIn = true
+			req.session.userId = user._id
+			req.session.username = user.username
+			req.session.message = `Welcome back, ${user.username}!`
 			res.redirect("/")
   		}
   	} else {
@@ -35,6 +38,30 @@ router.post("/register", async (req, res, next) => {
 
 router.get("/login", (req, res) => {
 	res.render("auth/login.ejs")
+})
+
+router.post("/login", async (req, res, next) => {
+	try {
+		const user = await User.findOne({username: req.body.username})
+		if (user) {
+			const validLogin = bcrypt.compareSync(req.body.password, user.password)
+			if (validLogin) {
+				req.session.loggedIn = true
+				req.session.userId = user._id
+				req.session.username = user.username
+				req.session.message = `Welcome back, ${user.username}!`
+				res.redirect("/")
+			} else {
+				req.session.message = "Invalid username or password"
+				res.redirect("/auth/login")
+			}
+		} else {
+			req.session.message = "Invalid username or password"
+			res.redirect("/auth/login")
+		}
+	} catch (err) {
+		next(err)
+	}
 })
 
 module.exports = router;
