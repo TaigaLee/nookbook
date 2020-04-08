@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
   username: {
@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
   },
   profilePicture: {
     type: String
-  }
+  },
   friendCode: String,
   island: {
     type: mongoose.Schema.Types.ObjectId,
@@ -20,8 +20,8 @@ const userSchema = new mongoose.Schema({
   },
   location: String,
   friend: []
-})
+});
 
-const User = mongoose.model("User", userSchema)
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;

@@ -1,9 +1,35 @@
-<%- include("./partials/header.ejs") %>
+<%- include("../partials/header.ejs") %>
+
+<h2>Register an Account</h2>
 
 <form action="/auth/register" method="post">
   <fieldset>
-
+    <div>
+      <label for="username">Username: </label>
+      <input type="text" name="username" id="username" placeholder="Desired Username">
+    </div>
+    <div>
+      <label for="password">Password: </label>
+      <input type="password" name="password" id="password" placeholder="Desired Password">
+    </div>
+    <div>
+    <label for="verifyPassword">Verify Password: </label>
+    <input type="password" name="verifyPassword" id="verifyPassword" placeholder="Re-enter Password">
+  </div>
+    <div>
+      <label for="island">Island Name: </label>
+      <input type="text" name="island" id="island" placeholder="Island Name">
+    </div>
+    <div>
+      <label for="friendCode">Switch Friend Code: </label>
+      <input type="text" name="friendCode" id="friendCode" placeholder="Friend Code">
+    </div>
+    <div>
+      <label for="location">Location (optional): </label>
+      <input type="text" name="location" id="location" placeholder="Location">
+    </div>
   </fieldset>
+  <button>Register Account</button>
 </form>
 
-<%- include("./partials/footer.ejs") %>
+<%- include("../partials/footer.ejs") %>
