@@ -4,8 +4,9 @@
 
 <ul>
     <% pictures.forEach((picture) => { %>
-    <div class='card'>
-        <a href="/rating-pictures/<%=picture._id %>/img"><li><%= picture.name %></li></a>
+    <div class='card' style="width: 10rem">
+        <img src="/rating-pictures/<%=picture._id %>/img" style="width: 100%">
+        <a href="/rating-pictures/<%=picture._id %>/img"><%= picture.name %></a>
     </div>
     <% }) %>    
 </ul>
