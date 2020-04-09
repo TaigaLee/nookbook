@@ -1,0 +1,13 @@
+<%- include("../partials/header.ejs") %>
+
+<h2>this page shows a list of pictures to rate</h2>
+
+<ul>
+    <% pictures.forEach((picture) => { %>
+    <div class='card'>
+        <a href="/rating-pictures/<%=picture._id %>/img"><li><%= picture.name %></li></a>
+    </div>
+    <% }) %>    
+</ul>
+
+<%- include("../partials/footer.ejs")%>

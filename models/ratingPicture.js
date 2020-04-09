@@ -17,7 +17,11 @@ const ratingPictureSchema = new mongoose.Schema({
   likes: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-  }]
+  }],
+  image: {
+    data: Buffer,
+    contentType: String
+  }
 });
 
 const RatingPicture = mongoose.model("RatingPicture", ratingPictureSchema);

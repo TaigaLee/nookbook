@@ -40,9 +40,11 @@ app.use("/island", islandController);
 const userController = require("./controllers/userController");
 app.use("/user", userController);
 
-
 const marketController = require("./controllers/marketController")
 app.use("/market", marketController)
+
+const ratingPictureController = require("./controllers/ratingPictureController");
+app.use("/rating-pictures", ratingPictureController);
 
 app.get("/", (req, res) => {
   res.render("home.ejs");

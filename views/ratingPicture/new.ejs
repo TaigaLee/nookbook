@@ -1,0 +1,21 @@
+<%- include("../partials/header.ejs") %>
+
+<h2>New Post</h2>
+
+<form method="POST" action="/rating-pictures/new" enctype="multipart/form-data">
+    <fieldset>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+        <label for="category">Category</label>
+        <select id="category" name="category">
+            <option disabled selected>Choose a category:</option>
+            <option value="outfit">outfit</option>
+            <option value="island">island</option>
+        </select>
+        <label for="image">Upload Photo:</label>
+        <input type="file" name="image" id="image" />
+    </fieldset>
+    <button>Submit</button>
+</form>
+
+<%- include("../partials/footer.ejs")%>
