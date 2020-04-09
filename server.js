@@ -27,6 +27,7 @@ app.use((req, res, next) => {
 	res.locals.username = req.session.username
 	res.locals.loggedIn = req.session.loggedIn
   res.locals.notcurrentUser = req.session.notcurrentUser
+  res.locals.userId = req.session.userId
 	next()
 })
 

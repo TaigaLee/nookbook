@@ -47,6 +47,16 @@ router.post("/add-pic", upload.single("pic"), async (req, res, next) => {
   }
 })
 
+router.get("/:id/pic", async (req, res, next) => {
+  try {
+    const foundUser = await User.findById(req.params.id)
+    res.set("Content-Type", foundUser.profilePicture.contentType)
+    res.send(foundUser.profilePicture.data)
+  } catch (err) {
+    next(err)
+  }
+})
+
 // edit route
 // show edit ejs
 router.get('/edit', async (req, res, next) => {
