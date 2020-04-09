@@ -10,7 +10,11 @@ const islandSchema = new mongoose.Schema({
     required: true
   },
   villagers: [{}],
-  turnipPrice
+  turnipPrice,
+  hemisphere: {
+  	type: String,
+  	enum: ["northern", "southern"]
+  }
 })
 
 const Island = mongoose.model("Island", islandSchema)
