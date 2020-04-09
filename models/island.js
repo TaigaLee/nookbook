@@ -9,7 +9,8 @@ const islandSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  villagers: [{}]
+  villagers: [{}],
+  turnipPrice
 })
 
 const Island = mongoose.model("Island", islandSchema)
