@@ -8,35 +8,34 @@ const upload = multer({ storage: storage });
 const User = require("../models/user");
 const RatingPicture = require("../models/ratingPicture");
 
-
 // show index route
-router.get('/', async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const pictures = await RatingPicture.find({});
-    res.render('ratingPicture/index.ejs', {
+    res.render("ratingPicture/index.ejs", {
       pictures: pictures
-    })
+    });
   } catch (err) {
     next(err);
   }
-})
+});
 
 // create pictures for ratings
 // show new ejs
-router.get('/new', async (req, res, next) => {
+router.get("/new", async (req, res, next) => {
   try {
     if (req.session.loggedIn) {
-      res.render('ratingPicture/new.ejs')
+      res.render("ratingPicture/new.ejs");
     } else {
-      res.redirect('/auth/login');
+      res.redirect("/auth/login");
     }
   } catch (err) {
     next(err);
   }
-}) // show new ejs
+}); // show new ejs
 
 // post route
-router.post('/new', upload.single('image'), async (req, res, next) => {
+router.post("/new", upload.single("image"), async (req, res, next) => {
   try {
     const ratingPicture = await RatingPicture.create({
       name: req.body.name,
@@ -46,12 +45,12 @@ router.post('/new', upload.single('image'), async (req, res, next) => {
         data: req.file.buffer,
         contentType: req.file.mimetype
       }
-    })
-    res.send(ratingPicture);
+    });
+    res.redirect("/rating-pictures");
   } catch (err) {
     next(err);
   }
-})
+});
 
 // render picture @ /rating-pictures/:id/img
 router.get("/:id/img", async (req, res, next) => {
@@ -59,6 +58,18 @@ router.get("/:id/img", async (req, res, next) => {
     const ratingPicture = await RatingPicture.findById(req.params.id);
     res.set("Content-Type", ratingPicture.image.contentType);
     res.send(ratingPicture.image.data);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.put("/:id", async (req, res, next) => {
+  try {
+    const ratingPicture = await RatingPicture.findById(req.params.id);
+    ratingPicture.likes.push(req.session.userId);
+    await ratingPicture.save();
+    console.log(ratingPicture);
+    res.redirect("/rating-pictures");
   } catch (err) {
     next(err);
   }
