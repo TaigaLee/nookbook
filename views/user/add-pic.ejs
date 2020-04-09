@@ -1,0 +1,13 @@
+<%- include("../partials/header.ejs") %>
+
+<h2>add profile picture</h2>
+
+<form method="POST" action="/user/add-pic" enctype="multipart/form-data">
+	<fieldset>
+		<label for="pic">Upload Photo:</label>
+		<input type="file" name="pic" id="pic" />
+	</fieldset>
+	<button>Submit</button>
+</form>
+
+<%- include("../partials/footer.ejs")%>

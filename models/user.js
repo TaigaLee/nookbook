@@ -10,7 +10,8 @@ const userSchema = new mongoose.Schema({
     required: true
   },
   profilePicture: {
-    type: String
+    data: Buffer,
+    contentType: String
   },
   friendCode: String,
   island: {

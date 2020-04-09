@@ -1,6 +1,9 @@
 const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
+const multer = require("multer")
+const storage = multer.memoryStorage()
+const upload = multer({storage: storage})
 
 // show current user profile
 router.get('/', async (req, res, next) => {
@@ -20,16 +23,28 @@ router.get('/', async (req, res, next) => {
 }) // show current user profile
 
 // add profile picture -- this is for test, can be modified and adjusted
-router.get('/add-profile', (req, res) => {
+router.get('/add-pic', (req, res) => {
   if (req.session.loggedIn) {
-    res.render('user/add-profile.ejs')
+    res.render('user/add-pic.ejs')
   } else {
     res.redirect('/auth/login')
   }
 }) // add profile picture router 
 
-router.post('/add-profile', (req, res) => {
-  res.send('after add profile picture action')
+
+router.post("/add-pic", upload.single("pic"), async (req, res, next) => {
+  try {
+    console.log("Here is the buffer")
+    console.log(req.file)
+    const user = await User.findById(req.session.userId)
+    user.profilePicture.data = req.file.buffer
+    user.profilePicture.contentType = req.file.mimetype
+    user.save()
+    console.log(user.profilePicture)
+    res.redirect("/user/edit")
+  } catch (err) {
+    next(err)
+  }
 })
 
 // edit route
