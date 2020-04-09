@@ -22,6 +22,14 @@ router.post('/new', async (req, res, next) => {
     }
 })
 
+router.get("/:id/update", async (req, res, next) => {
+    try {
+        const islandToEdit = Island.findById(req.params.id)
+        res.render("island/update.ejs", {island: islandToEdit})
+    } catch (err) {
+        next(err)
+    }
+})
 
 
 
