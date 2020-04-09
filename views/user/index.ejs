@@ -10,10 +10,11 @@
     </div>
 
     <div class=status>
-        <div>Status: constructing</div>
+        <form action="/<%= user.id %>/add-friend?_method=PUT" method="post">
         <% if(notcurrentUser && loggedIn) { %>
-        <button>add friend</button>
+        <button>Add Friend</button>
         <% } %>
+    </form>
     </div>
 
     <div class="friend">Friend list
