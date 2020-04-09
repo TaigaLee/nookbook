@@ -22,23 +22,26 @@ app.use(
 );
 
 app.use((req, res, next) => {
-	res.locals.message = req.session.message
+  res.locals.message = req.session.message;
   req.session.message = "";
-	res.locals.username = req.session.username
-	res.locals.loggedIn = req.session.loggedIn
-  res.locals.notcurrentUser = req.session.notcurrentUser
-  res.locals.userId = req.session.userId
-	next()
-})
+  res.locals.username = req.session.username;
+  res.locals.loggedIn = req.session.loggedIn;
+  res.locals.notcurrentUser = req.session.notcurrentUser;
+  res.locals.userId = req.session.userId;
+  next();
+});
 
 const authController = require("./controllers/authController.js");
 app.use("/auth", authController);
 
-const islandController = require("./controllers/islandController")
-app.use("/island", islandController)
+const islandController = require("./controllers/islandController");
+app.use("/island", islandController);
 
-const userController = require("./controllers/userController")
-app.use("/user", userController)
+const userController = require("./controllers/userController");
+app.use("/user", userController);
+
+const itemController = require("./controllers/itemController");
+app.use("/items", itemController);
 
 app.get("/", (req, res) => {
   res.render("home.ejs");

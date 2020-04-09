@@ -1,0 +1,14 @@
+<%- include("../partials/header.ejs") %>
+
+<h2><%= item.name %></h2>
+
+<h3>Price: <%= item.price %></h3>
+
+
+<h2>Admin Controls</h2>
+<a href="/items/<%=item.id%>/edit">Edit</a>
+<form action="/items/<%= item.id %>?_method=delete" method="post">
+  <button>Delete Item</button>
+</form>
+
+<%- include("../partials/footer.ejs")%>
