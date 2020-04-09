@@ -16,10 +16,6 @@ router.post('/new', async (req, res, next) => {
         const currentUser = await User.findById(req.session.userId)
         currentUser.island = newIsland
         await currentUser.save()
-        console.log('this is island------')
-        console.log(newIsland)
-        console.log('this is user-----')
-        console.log(currentUser)
         res.redirect('/')
     } catch (err) {
         next(err)

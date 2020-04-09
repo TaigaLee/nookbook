@@ -13,7 +13,7 @@ router.get("/", async (req, res, next) => {
         "island"
       );
       req.session.notcurrentUser = false;
-      res.render("user/index.ejs", {
+      res.render("user/show.ejs", {
         user: currentUser
       });
     } else {
@@ -35,13 +35,10 @@ router.get("/add-pic", (req, res) => {
 
 router.post("/add-pic", upload.single("pic"), async (req, res, next) => {
   try {
-    console.log("Here is the buffer");
-    console.log(req.file);
     const user = await User.findById(req.session.userId);
     user.profilePicture.data = req.file.buffer;
     user.profilePicture.contentType = req.file.mimetype;
     user.save();
-    console.log(user.profilePicture);
     res.redirect("/user/edit");
   } catch (err) {
     next(err);
@@ -91,16 +88,35 @@ router.delete("/", async (req, res, next) => {
   }
 });
 
+// show a list of current users
+router.get('/list', async (req, res, next) => {
+    try {
+        const users = await User.find({});
+        res.render("user/index.ejs", {
+          users: users
+        })
+    } catch (err) {
+        next(err);
+    }
+})
 // show other account profile
-router.get("/:username", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
-    const user = await User.findOne({ username: req.params.username });
+    const user = await User.findById(req.params.id);
     if (user) {
+      // check if the viewing user is the current user
       const notcurrentUser =
-        req.session.username !== req.params.username ? true : false;
-      res.render("user/index.ejs", {
+        req.session.username !== user.username ? true : false;
+
+      // check if the viewing user is friend of the current user
+      const currentUser = await User.findById(req.session.userId);
+      const friendList = currentUser.friends;
+      const isFriend = friendList.indexOf(req.params.id) !== -1 ? true : false
+
+      res.render("user/show.ejs", {
         user: user,
-        notcurrentUser: notcurrentUser
+        notcurrentUser: notcurrentUser,
+        isFriend: isFriend
       });
     } else {
       req.session.message = "The user does not exist";
@@ -111,6 +127,16 @@ router.get("/:username", async (req, res, next) => {
   }
 }); // show other account profile
 
-router.put("/:id/add-friend", (req, res) => {});
+// add friend route
+router.put("/:id/add-friend", async (req, res, next) => {
+  try {
+    const currentUser = await User.findOne({ username: req.session.username })
+    currentUser.friends.push(req.params.id);
+    await currentUser.save();
+    res.redirect('/user/' + req.params.id)
+  } catch (err) {
+      next(err);
+  }
+});
 
 module.exports = router;

@@ -1,32 +1,14 @@
 <%- include("../partials/header.ejs") %>
-<% if(!notcurrentUser) { %>
-<a href="/user/add-pic">add profile picture</a>
-<a href="/user/edit">Edit User</a>
-<% } %>
-<div class='usershow'>
-    <div class='profile'>
-        <h3><%= user.username %></h3>
-        <img src="/user/<%= userId %>/pic" class="profile-pic" />
+
+<h2>this page shows a list of users</h2>
+
+<ul>
+    <% users.forEach((user) => { %>
+    <div class='card'>
+        <img src="/user/<%= user._id %>/pic" width="10px">
+        <a href="/user/<%= user._id %>"><li><%= user.username %></li></a>
     </div>
+    <% }) %>    
+</ul>
 
-    <div class=status>
-        <form action="/<%= user.id %>/add-friend?_method=PUT" method="post">
-        <% if(notcurrentUser && loggedIn) { %>
-        <button>Add Friend</button>
-        <% } %>
-    </form>
-    </div>
-
-    <div class="friend">Friend list
-    <ul>
-        <li>friend 1</li>
-        <li>friend 2</li>
-        <li> and more and more</li>
-    </ul>
-    </div>
-
-    <div class="post">this is post div</div>
-
-    <div class="island-snapshot">island snapshot</div>
-</div>
 <%- include("../partials/footer.ejs")%>

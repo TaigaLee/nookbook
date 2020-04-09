@@ -19,7 +19,9 @@ const userSchema = new mongoose.Schema({
     ref: "Island"
   },
   location: String,
-  friend: []
+  friends: [{
+    type: String
+  }]
 });
 
 const User = mongoose.model("User", userSchema);
