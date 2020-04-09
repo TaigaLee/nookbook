@@ -9,7 +9,7 @@ const upload = multer({ storage: storage });
 router.get("/", async (req, res, next) => {
   try {
     const foundItems = await Item.find().populate("user");
-    res.render("items/index.ejs", {
+    res.render("market/index.ejs", {
       items: foundItems,
       userId: req.session.userId
     });
@@ -19,14 +19,14 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/new", (req, res) => {
-  res.render("items/new.ejs");
+  res.render("market/new.ejs");
 });
 
 router.get("/:id", async (req, res, next) => {
   try {
     const foundItem = await Item.findById(req.params.id).populate("user");
 
-    res.render("items/show.ejs", {
+    res.render("market/show.ejs", {
       item: foundItem
     });
   } catch (err) {
@@ -48,7 +48,7 @@ router.post("/new", async (req, res, next) => {
       itemToCreate.hot = false;
     }
     const createdItem = await Item.create(itemToCreate);
-    res.redirect("/items/" + createdItem.id);
+    res.redirect("/market/" + createdItem.id);
   } catch (err) {
     next(err);
   }
@@ -57,7 +57,7 @@ router.post("/new", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   try {
     const itemToDelete = await Item.findByIdAndDelete(req.params.id);
-    res.redirect("/items");
+    res.redirect("/market");
     console.log(itemToDelete);
   } catch (err) {
     next(err);
@@ -67,7 +67,7 @@ router.delete("/:id", async (req, res, next) => {
 router.get("/:id/edit", async (req, res, next) => {
   try {
     const foundItem = await Item.findById(req.params.id);
-    res.render("items/edit.ejs", {
+    res.render("market/edit.ejs", {
       item: foundItem
     });
   } catch (err) {
@@ -90,7 +90,7 @@ router.put("/:id", async (req, res, next) => {
 
     await Item.findByIdAndUpdate(req.params.id, updatedItem);
 
-    res.redirect("/items");
+    res.redirect("/market");
   } catch (err) {
     next(err);
   }

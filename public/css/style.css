@@ -81,3 +81,19 @@ div.island-snapshot {
 img.profile-pic {
   width: 100%;
 }
+
+div.item-for-sale {
+  background-color: #a5601b;
+  color: gold;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+div.item-for-sale a {
+  text-decoration: none;
+  color: gold;
+}
+
+div.item-for-sale a:hover {
+  text-decorate: underline;
+}
