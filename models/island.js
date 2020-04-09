@@ -10,7 +10,7 @@ const islandSchema = new mongoose.Schema({
     required: true
   },
   villagers: [{}],
-  turnipPrice,
+  turnipPrice: Number,
   hemisphere: {
   	type: String,
   	enum: ["northern", "southern"]
