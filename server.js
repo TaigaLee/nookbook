@@ -46,6 +46,9 @@ app.use("/market", marketController)
 const ratingPictureController = require("./controllers/ratingPictureController");
 app.use("/rating-pictures", ratingPictureController);
 
+const chatController = require("./controllers/chatController")
+app.use("/chat", chatController)
+
 app.get("/", (req, res) => {
   res.render("home.ejs");
 });
