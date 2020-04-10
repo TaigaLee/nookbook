@@ -1,12 +1,11 @@
 const socket = io("/" + roomOwner)
 
-socket.on("connection", (socket) => {
-	socket.emit("Join Room", roomOwner)	
-	console.log("Joined")
-})
+// socket.on("connection", (socket) => {
+// 	socket.emit("Join Room", roomOwner)	
+// 	console.log("Joined")
+// })
 
 $( "#message-form" ).submit( (e) => {
-	console.log(socket)
 	e.preventDefault()
 	const message = `${chatUser}: ${$( "#message" ).val()}`
 	socket.emit("room message", message)
