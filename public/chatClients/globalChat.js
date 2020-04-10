@@ -2,7 +2,7 @@ const socket = io()
 
 $( "#message-form" ).submit( (e) => {
 	e.preventDefault()
-	const message = $( "#message" ).val()
+	const message = `${chatUser}: ${$( "#message" ).val()}`
 	socket.emit("chat message", message)
 	$( "#message" ).val("")
 })

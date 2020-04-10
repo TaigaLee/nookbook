@@ -11,15 +11,7 @@ const io = require("socket.io")(http)
 
 require("./db/db.js");
 
-// socket.io
 
-io.on("connection", (socket) => {
-  socket.on("chat message", (msg) => {
-    io.emit("chat message", msg)
-  })
-})
-
-require("./chatServer/chatServer")(http)
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -42,6 +34,16 @@ app.use((req, res, next) => {
   res.locals.userId = req.session.userId;
   next();
 });
+
+// socket.io
+
+io.on("connection", (socket) => {
+  socket.on("chat message", (msg) => {
+    io.emit("chat message", msg)
+  })
+})
+
+// controllers
 
 const authController = require("./controllers/authController.js");
 app.use("/auth", authController);
