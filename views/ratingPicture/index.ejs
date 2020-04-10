@@ -8,15 +8,23 @@
 
 <ul>
     <% pictures.forEach((picture) => { %>
-    <div class='card' style="width: 10rem">
-        <img src="/rating-pictures/<%=picture._id %>/img" style="width: 100%">
-        <a href="/rating-pictures/<%=picture._id %>/img"><%= picture.name %></a>
-        <p>Likes: <%= picture.likes.length %></p>
-        <% if(! picture.likes.includes(userId)) { %>
-        <form action="/rating-pictures/<%= picture._id %>?_method=put" method="post">
-          <button>Like Picture</button>
-        </form>
-    <% } %>
+    <div class='rate-picture'>
+        <div class='card'>
+            <a href="/rating-pictures/<%=picture._id %>/img">
+                <div class="card-header">
+                    <h3>
+                    <%= picture.name %>    
+                    </h3>
+                </div>
+            </a>
+            <img src="/rating-pictures/<%=picture._id %>/img" class='card-img-top'>
+            <p>Likes: <%= picture.likes.length %></p>
+            <% if(! picture.likes.includes(userId)) { %>
+                <form action="/rating-pictures/<%= picture._id %>?_method=put" method="post">
+                  <button>Like Picture</button>
+                </form>
+            <% } %>
+        </div>
     </div>
     <% }) %>
 </ul>

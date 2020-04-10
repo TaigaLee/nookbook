@@ -14,9 +14,10 @@
   <header>
   <nav class='auth'>
         <% if (loggedIn) { %>
-        <p><%= username %></p>
-        <a href="/user">Profile</a> |
-        <a href="/auth/logout">Log Out</a>
+        <p>
+          <a href="/user">Profile</a> |
+          <a href="/auth/logout">Log Out</a>
+        </p>
         <% } else { %>
         <a href="/auth/register">Register</a> |
         <a href="/auth/login">Log In</a>
