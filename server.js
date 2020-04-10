@@ -8,16 +8,18 @@ const methodOverride = require("method-override");
 const PORT = process.env.PORT;
 const io = require("socket.io")(http)
 
+
 require("./db/db.js");
 
 // socket.io
 
 io.on("connection", (socket) => {
   socket.on("chat message", (msg) => {
-    console.log(msg)
     io.emit("chat message", msg)
   })
 })
+
+require("./chatServer/chatServer")(http)
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
