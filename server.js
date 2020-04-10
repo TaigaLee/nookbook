@@ -13,7 +13,10 @@ require("./db/db.js");
 // socket.io
 
 io.on("connection", (socket) => {
-  console.log("User connected")
+  socket.on("chat message", (msg) => {
+    console.log(msg)
+    io.emit("chat message", msg)
+  })
 })
 
 app.use(express.static("public"));

@@ -2,12 +2,13 @@
 
 <ul id="chat-window"></ul>
 
-<form>
-	<input type="text" name="message" id="message" />
+<form id="message-form" action="">
+	<input type="text" name="message" id="message" autocomplete="off" />
 	<button>Send</button>
 </form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
+<script src="/socket.io/socket.io.js"></script>
+<script src="/chatClients/global.js"></script>
 
 <%- include("../partials/footer.ejs") %>
