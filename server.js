@@ -36,24 +36,14 @@ app.use((req, res, next) => {
 });
 
 
-app.use((req, res, next) => {
-  if (req.session.loggedIn && !req.session.chatInitialized) {
-    req.session.chatInitialized = true
-    const myRoom = io.of("/" + req.session.userId)
-    myRoom.on("connection", (socket) => {
-      socket.on("room message", (msg) => {
-        myRoom.emit("room message", msg)
-      })
-    })
-  }
-  next()
-})
-
-
-
 io.on("connection", (socket) => {
-  socket.on("chat message", (msg) => {
-    io.emit("chat message", msg)
+  socket.on('join', (chatOwner) => {
+    console.log('join room')
+    socket.join(chatOwner);
+  })
+  socket.on("chat message", (msg, chatOwner) => {
+    console.log('event on server')
+    io.to(chatOwner).emit("chat message", msg)
   })
 })
 
