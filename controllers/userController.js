@@ -5,6 +5,11 @@ const multer = require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+// search for users
+router.get("/search", (req, res) => {
+  res.render("user/search.ejs")
+})
+
 // show current user profile
 router.get("/", async (req, res, next) => {
   try {
