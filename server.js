@@ -39,10 +39,8 @@ app.use((req, res, next) => {
 app.use((req, res, next) => {
   if (req.session.loggedIn && !req.session.chatInitialized) {
     req.session.chatInitialized = true
-    console.log("Middleware if statement is good")
     const myRoom = io.of("/" + req.session.userId)
     myRoom.on("connection", (socket) => {
-      console.log("User connected")
       socket.on("room message", (msg) => {
         myRoom.emit("room message", msg)
       })
