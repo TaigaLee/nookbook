@@ -8,10 +8,7 @@ const methodOverride = require("method-override");
 const PORT = process.env.PORT;
 const io = require("socket.io")(http)
 
-
 require("./db/db.js");
-
-
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -38,11 +35,9 @@ app.use((req, res, next) => {
 
 io.on("connection", (socket) => {
   socket.on('join', (chatOwner) => {
-    console.log('join room')
     socket.join(chatOwner);
   })
   socket.on("chat message", (msg, chatOwner) => {
-    console.log('event on server')
     io.to(chatOwner).emit("chat message", msg)
   })
 })
