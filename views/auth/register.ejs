@@ -1,33 +1,65 @@
 <%- include("../partials/header.ejs") %>
 
+<div class='auth'>
+  
 <h2>Register an Account</h2>
 
 <h3><%= message %></h3>
 
 <form action="/auth/register" method="post">
-  <fieldset>
-    <div>
+  <table class='auth-table'>
+    <tr>
+      <td>
       <label for="username">Username: </label>
+        
+      </td>
+      <td>
       <input type="text" name="username" id="username" placeholder="Desired Username">
-    </div>
-    <div>
+        
+      </td>
+    </tr>
+    <tr>
+      <td>
       <label for="password">Password: </label>
+        
+      </td>
+      <td>
       <input type="password" name="password" id="password" placeholder="Desired Password">
-    </div>
-    <div>
-    <label for="verifyPassword">Verify Password: </label>
-    <input type="password" name="verifyPassword" id="verifyPassword" placeholder="Re-enter Password">
-  </div>
-    <div>
+        
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <label for="verifyPassword">Verify Password: </label>
+        
+      </td>
+      <td>
+      <input type="password" name="verifyPassword" id="verifyPassword" placeholder="Re-enter Password">
+        
+      </td>
+    </tr>
+    <tr>
+      <td>
       <label for="friendCode">Switch Friend Code: </label>
+      </td>
+      <td>
       <input type="text" name="friendCode" id="friendCode" placeholder="Friend Code">
-    </div>
-    <div>
+      </td>
+    </tr>
+    <tr>
+      <td>
       <label for="location">Location (optional): </label>
+        
+      </td>
+      <td>
       <input type="text" name="location" id="location" placeholder="Location">
-    </div>
-  </fieldset>
-  <button>Register Account</button>
+        
+      </td>
+    </tr>
+  </table>
+  <button class='auth-button'>Register Account</button>
 </form>
+
+</div>
 
 <%- include("../partials/footer.ejs") %>

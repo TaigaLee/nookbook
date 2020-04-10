@@ -1,13 +1,14 @@
-const socket = io("/" + roomOwner)
+const socket = io()
+socket.emit('join', roomOwner);
 
 
-$( "#message-form" ).submit( (e) => {
-	e.preventDefault()
-	const message = `${chatUser}: ${$( "#message" ).val()}`
-	socket.emit("room message", message)
-	$( "#message" ).val("")
+$("#message-form").submit((e) => {
+  e.preventDefault()
+  const message = `${chatUser}: ${$( "#message" ).val()}`
+  socket.emit("chat message", message, roomOwner)
+  $("#message").val("")
 })
 
-socket.on("room message", (msg) => {
-	$( "#chat-window" ).append($("<li>").text(msg))
+socket.on("chat message", (msg) => {
+  $("#chat-window").append($("<li>").text(msg))
 })

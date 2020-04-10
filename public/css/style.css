@@ -5,7 +5,6 @@ body {
 
 header {
   text-align: center;
-  min-height: 20vh
 }
 
 h1 {
@@ -43,27 +42,40 @@ footer {
 }
 
 div.container {
-  padding: 0 10%;
+  padding: 1% 10%;
   min-height: 60vh;
 }
 
-
+div.auth {
+  text-align: center;
+}
+table.auth-table {
+  margin: 0 auto;
+}
+button.auth-button {
+  margin-top: 5px;
+}
+/*User show */
 div.usershow {
   display: flex;
   flex-flow: row wrap;
 }
 div.profile {
-  border: 2px solid black;
+  text-align: center;
   margin: 2%;
-  width: 30%;
+  margin-right: 8%;
+  width: 25%;
+}
+div.profile div.card {
+  border: none;
+  background-color: #5bd6ba;
 }
 div.status {
-  border: 2px solid black;
   margin: 2%;
   width: 60%;
+  padding-top: 10%;
 }
 div.friend {
-  border: 2px solid black;
   width: 30%;
   margin: 2%;
 }
@@ -77,16 +89,29 @@ div.island-snapshot {
   width: 90%;
   margin: 2%;
 }
-
 img.profile-pic {
   width: 100%;
 }
 
-div.item-for-sale {
+/* rate-picture */
+div.rate-picture div.card {
+  max-height: 100vh;
+  margin-bottom: 15px;
+  background-color: #f5c07b;
+}
+
+div.rate-picture div.card img.card-img-top {
+  height: 100%;
+}
+
+/* item-for-sale */
+div.item-for-sale div.card {
   background-color: #a5601b;
   color: gold;
   padding: 5px;
   border-radius: 10px;
+  margin-bottom: 1px;
+  width: 60%;
 }
 
 div.item-for-sale a {
@@ -98,6 +123,13 @@ div.item-for-sale a:hover {
   text-decorate: underline;
 }
 
+div#user-index div.list-group a.list-group-item{
+  background-color: #f5c07b;
+}
+div#user-index div.list-group a.list-group-item img{
+  width: 30px;
+  margin-right: 5px;
+}
 ul#chat-window {
   list-style: none;
   width: 80%;

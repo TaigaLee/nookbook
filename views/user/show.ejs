@@ -1,16 +1,21 @@
 <%- include("../partials/header.ejs") %>
 <% if(!notcurrentUser) { %>
-<a href="/user/add-pic">add profile picture</a>
-<a href="/user/edit">Edit User</a>
-<a href="/island/<%= user.island.id%>/update">Update My Island</a>
+<div class='user-auth'>
+    <a href="/user/add-pic">add profile picture</a>
+    <a href="/user/edit">Edit User</a>
+    <a href="/island/<%= user.island.id%>/update">Update My Island</a>
+</div>
 <% } %>
 <div class='usershow'>
     <div class='profile'>
-        <h3><%= user.username %></h3>
-        <img src="/user/<%= userId %>/pic" class="profile-pic" />
+        <div class="card">
+            <h3 class='card-title'><%= user.username %></h3>
+            <img src="/user/<%= userId %>/pic" class="profile-pic" />
+        </div>
     </div>
 
     <div class=status>
+        <h4>Status: My island is on fire and is burning down!</h4>
         <form action="/user/<%= user.id %>/add-friend?_method=PUT" method="post">
         <% if(notcurrentUser && loggedIn && !isFriend) { %>
         <button>Add Friend</button>
@@ -18,15 +23,22 @@
     </form>
     </div>
 
-    <div class="friend">Friend list
+    <div class="friend"><h3>Friend</h3>
     <ul>
         <li>friend 1</li>
         <li>friend 2</li>
         <li> and more and more</li>
     </ul>
     </div>
-
-    <div class="post">this is post div</div>
+    <div class='post'>
+        <h3>Post</h3>
+        <div class='post-content'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+    </div>
 
     <div class="island-snapshot">island snapshot</div>
 </div>

@@ -1,23 +1,34 @@
 <%- include("../partials/header.ejs") %>
 
 <h2> <%= message %></h2>
+<div class="auth">
 <h2>Enter Username and Password</h2>
-<form method="POST" action="/auth/login">
-	<fieldset>
-		<div>
-			<label for="username">Username:</label>
-			<input type="text" name="username" id="username" />
-		</div>
-		<div>
-			<label for="password">Password:</label>
-			<input type="password" name="password" id="password">
-		</div>
-	</fieldset>
-	<button>Log In</button>
-</form>
-<div>
-	<p>Not a member already?</p>
-	<a href="/auth/register">Sign up</a>
+
+	<form method="POST" action="/auth/login">
+		<table class='auth-table'>
+			<tr class='row'>
+				<td class='col-sm'>
+				<label for="username">Username:</label>
+				</td>
+				<td class='col-sm'>
+				<input type="text" name="username" id="username" />
+				</td>
+			</tr>
+			<tr class='row'>
+				<td class='col-sm'>
+				<label for="password" >Password:</label>	
+				</td>
+				<td class='col-sm'>
+				<input type="password" name="password" id="password">		
+				</td>
+			</tr>
+		</table>
+		<button class='auth-button'>Log In</button>
+	</form>
+	<div>
+		<p>Not a member already?</p>
+		<a href="/auth/register">Sign up</a>
+	</div>
 </div>
 
 

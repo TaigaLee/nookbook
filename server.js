@@ -8,10 +8,7 @@ const methodOverride = require("method-override");
 const PORT = process.env.PORT;
 const io = require("socket.io")(http)
 
-
 require("./db/db.js");
-
-
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -36,24 +33,12 @@ app.use((req, res, next) => {
 });
 
 
-app.use((req, res, next) => {
-  if (req.session.loggedIn && !req.session.chatInitialized) {
-    req.session.chatInitialized = true
-    const myRoom = io.of("/" + req.session.userId)
-    myRoom.on("connection", (socket) => {
-      socket.on("room message", (msg) => {
-        myRoom.emit("room message", msg)
-      })
-    })
-  }
-  next()
-})
-
-
-
 io.on("connection", (socket) => {
-  socket.on("chat message", (msg) => {
-    io.emit("chat message", msg)
+  socket.on('join', (chatOwner) => {
+    socket.join(chatOwner);
+  })
+  socket.on("chat message", (msg, chatOwner) => {
+    io.to(chatOwner).emit("chat message", msg)
   })
 })
 

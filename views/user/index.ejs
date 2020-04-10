@@ -2,13 +2,14 @@
 
 <h2>this page shows a list of users</h2>
 
-<ul>
+<div id='user-index'>
+<div class="list-group">
     <% users.forEach((user) => { %>
-    <div class='card'>
-        <img src="/user/<%= user._id %>/pic" width="100px">
-        <a href="/user/<%= user._id %>"><li><%= user.username %></li></a>
-    </div>
+        <a href="/user/<%= user._id %>" class="list-group-item">
+            <img src="/user/<%= user._id %>/pic">
+            <%= user.username %>
+        </a>
     <% }) %>
-</ul>
-
+</div>
+</div>
 <%- include("../partials/footer.ejs")%>
