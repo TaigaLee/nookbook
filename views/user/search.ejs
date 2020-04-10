@@ -3,8 +3,16 @@
 <h3>Find a User:</h3>
 <form>
 	<label for="searchInfo">Find User:</label>
-	<input type="search" name="searchInfo" id="searchInfo">
+	<input type="search" name="searchInfo" id="searchInfo" />
 	<button>Search</button>
 </form>
+
+<ul>
+	<% searchResults.forEach( (result) => {%>
+		<li>
+			<a href="/user/<%= result._id %>"><%= result.username %></a>
+		</li>
+	<% }) %>
+</ul>
 
 <%- include("../partials/footer.ejs") %>

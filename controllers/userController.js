@@ -6,8 +6,18 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 // search for users
-router.get("/search", (req, res) => {
-  res.render("user/search.ejs")
+router.get("/search", async (req, res, next) => {
+  try {
+    let foundUsers = []
+    if (req.query.searchInfo) {
+      const re = new RegExp(req.query.searchInfo, "i")
+      foundUsers = await User.find({username: re})
+      console.log(foundUsers)
+    }
+    res.render("user/search.ejs", {searchResults: foundUsers})
+  } catch (err){
+    next(err)
+  }
 })
 
 // show current user profile
