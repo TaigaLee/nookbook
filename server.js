@@ -35,13 +35,54 @@ app.use((req, res, next) => {
   next();
 });
 
+let myRoom = null
+app.use((req, res, next) => {
+  if (req.session.loggedIn) {
+    console.log("Middleware if statement is good")
+    myRoom = io.of("/" + req.session.userId)
+    myRoom.on("connection", (socket) => {
+      console.log("User connected")
+      socket.on("room message", (msg) => {
+        myRoom.emit("room message", msg)
+      })
+    })
+  }
+  next()
+})
+
 // socket.io
 
+// const myRoom = io.of("/")
+
+// myRoom.on("connection", (socket) => {
+//   socket.on("Join Room", (roomOwner) => {
+//     socket.join(roomOwner)
+//     io.join(roomOwner)
+//     console.log("You joined " + roomOwner)
+//   })
+// })
+if (myRoom) {
+  console.log("socket if statement is good")
+  myRoom.on("connection", (socket) => {
+    console.log("User connected")
+    socket.on("room message", (msg) => {
+      myRoom.emit("room message", msg)
+    })
+  })
+}
+
+
 io.on("connection", (socket) => {
+  // socket.on("Join Room", (roomOwner) => {
+  //   io.join(roomOwner)
+  //   console.log("You joined " + roomOwner)
+  // })
   socket.on("chat message", (msg) => {
     io.emit("chat message", msg)
   })
 })
+
+
 
 // controllers
 

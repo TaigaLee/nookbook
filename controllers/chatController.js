@@ -1,6 +1,9 @@
 const express = require("express")
 const router = express.Router()
 const User = require("../models/user")
+const http = require("http").createServer(router)
+const io = require("socket.io")(http)
+
 
 router.get("/", (req, res) => {
 	if (req.session.loggedIn) {
@@ -22,6 +25,12 @@ router.get("/global", (req, res) => {
 
 router.get("/:id", async (req, res, next) => {
 	try {
+		// io.on("connection", (socket) => {
+		// 	socket.join(req.params.id.toString())
+  // 			socket.on("room message", (msg) => {
+  //   		io.to(req.params.id.toString()).emit("room message", msg)
+  // 			})
+		// })
 		const roomOwner = await User.findById(req.params.id)
 		res.render("chat/myRoom.ejs", {roomOwner: roomOwner})
 	} catch (err) {
