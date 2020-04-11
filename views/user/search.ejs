@@ -7,12 +7,16 @@
 	<button>Search</button>
 </form>
 
-<ul>
+<div id="user-index">
+    <div class="list-group">
 	<% searchResults.forEach( (result) => {%>
-		<li>
-			<a href="/user/<%= result._id %>"><%= result.username %></a>
-		</li>
+        <a href="/user/<%= result._id %>" class="list-group-item">
+            <img src="/user/<%= result._id %>/pic">
+            <%= result.username %>
+        </a>
 	<% }) %>
-</ul>
+    </div>
+</div>
+
 
 <%- include("../partials/footer.ejs") %>
