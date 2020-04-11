@@ -2,24 +2,45 @@
 
 <h2>Update My Profile</h2>
 
-<a href="/island/<%= userToEdit.island.id%>/update">Update My Island</a> |
-<a href="/auth/edit">Change Username or Password</a>
+<table class="auth-table">
+  <tr>
+    <td>
+      <a href="/island/<%= userToEdit.island.id%>/update">Update My Island</a> &nbsp |
+    </td>
+    <td>
+      <a href="/auth/edit">Change Username or Password</a>
+    </td>
+  </tr>
+  <form action="/user/edit?_method=put" method="post">
+    <tr>
+      <td>
+        <label for="friendCode">Switch Friend Code: </label>
+      </td>
+      <td>
+        <input type="text" name="friendCode" id="friendCode" placeholder="Friend Code">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="location">Location (optional): </label>
+      </td>
+      <td>
+        <input type="text" name="location" id="location" placeholder="Location">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button>Edit Account</button>
+      </td>
+    </tr>
+  </form>
+  <form method=POST action="/user?_method=DELETE">
+    <tr>
+      <td>
+        <button>Delete Account</button>
+      </td>
+    </tr>
+  </form>
+</table>
 
-<form action="/user/edit?_method=put" method="post">
-  <fieldset>
-    <div>
-      <label for="friendCode">Switch Friend Code: </label>
-      <input type="text" name="friendCode" id="friendCode" placeholder="Friend Code">
-    </div>
-    <div>
-      <label for="location">Location (optional): </label>
-      <input type="text" name="location" id="location" placeholder="Location">
-    </div>
-  </fieldset>
-  <button>Edit Account</button>
-</form>
-
-<form method=POST action="/user?_method=DELETE">
-    <button>delete</button>
-</form>
 <%- include("../partials/footer.ejs")%>

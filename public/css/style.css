@@ -144,3 +144,7 @@ ul#chat-window {
 h2 {
   text-align: center;
 }
+
+h4.message {
+  text-align: center;
+}

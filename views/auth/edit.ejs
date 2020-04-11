@@ -4,25 +4,45 @@
 <h3><%= message %></h3>
 
 <form method="POST" action="/auth/edit?_method=put">
-	<fieldset>
-		<div>
-			<label for="password">Enter Current Password:</label>
-			<input type="password" name="password" id="password" />
-		</div>
-		<div>
-			<label for="username">Enter New Username: </label>
-			<input type="text" name="username" id="username" value="<%= username %>" />
-		</div>
-		<div>
-			<label for="newPassword">Enter New Password:</label>
-			<input type="password" name="newPassword" id="newPassword" />
-		</div>
-		<div>
-			<label for="verifyPassword">Re-enter New Password:</label>
-			<input type="password" name="verifyPassword" id="verifyPassword" />
-		</div>
-	</fieldset>
-	<button>Submit</button>
+	<table class="auth-table">
+		<tr>
+			<td>
+				<label for="password">Enter Current Password:</label>
+			</td>
+			<td>
+				<input type="password" name="password" id="password" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="username">Enter New Username: </label>
+			</td>
+			<td>
+				<input type="text" name="username" id="username" value="<%= username %>" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="newPassword">Enter New Password:</label>
+			</td>
+			<td>
+				<input type="password" name="newPassword" id="newPassword" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="verifyPassword">Re-enter New Password:</label>
+			</td>
+			<td>
+				<input type="password" name="verifyPassword" id="verifyPassword" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button>Submit</button>
+			</td>
+		</tr>
+	</table>
 </form>
 
 <%- include("../partials/footer.ejs") %>
