@@ -22,7 +22,7 @@ router.post("/register", async (req, res, next) => {
         req.session.loggedIn = true
         req.session.userId = createdUser._id
         req.session.username = createdUser.username
-        req.session.message = `Welcome new user: ${createdUser.username}!`
+        req.session.message = `Thank you for signing up, ${createdUser.username}!`
         res.redirect("/island/new")
       }
     } else {

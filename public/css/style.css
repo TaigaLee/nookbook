@@ -140,3 +140,11 @@ ul#chat-window {
   border-radius: 5px;
   color: #a5601b;
 }
+
+h2 {
+  text-align: center;
+}
+
+h4.message {
+  text-align: center;
+}
