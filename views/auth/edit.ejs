@@ -1,0 +1,28 @@
+<%- include("../partials/header.ejs") %>
+
+<h2>Change Username/Password</h2>
+<h3><%= message %></h3>
+
+<form>
+	<fieldset>
+		<div>
+			<label for="password">Enter Current Password:</label>
+			<input type="password" name="password" id="password" />
+		</div>
+		<div>
+			<label for="username">Enter New Username: </label>
+			<input type="text" name="username" id="username" value="<%= username %>" />
+		</div>
+		<div>
+			<label for="newPassword">Enter New Password:</label>
+			<input type="password" name="newPassword" id="newPassword" />
+		</div>
+		<div>
+			<label for="verifyPassword">Re-enter New Password:</label>
+			<input type="password" name="verifyPassword" id="verifyPassword" />
+		</div>
+	</fieldset>
+	<button>Submit</button>
+</form>
+
+<%- include("../partials/footer.ejs") %>
