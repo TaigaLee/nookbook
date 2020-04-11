@@ -4,34 +4,54 @@
 <h3><%= message %></h3>
 
 <form method=POST action="/island/new">
-	<fieldset>
-		<div>
-			<label for="name">Island Name: </label>
-			<input type="text" name="name" id="name" />
-		</div>
-		<div>
-			<label for="fruit">Fruit: </label>
-			<select name="fruit" id="fruit">
-				<option value="" disabled selected>Select Fruit</option>
-				<% fruits.forEach( (fruit) => {%>
-					<option value="<%=fruit%>"><%= fruit %></option>
-				<% }) %>
-			</select>
-		</div>
-		<div>
-			<label for="turnipPrice">Current Turnip Price</label>
-			<input type="number" name="turnipPrice" id="turnipPrice" value=0 />
-		</div>
-		<div>
-			<label for="hemisphere">Hemisphere: </label>
-			<select name="hemisphere" id="hemisphere">
-				<option value ="" disabled selected>Select Hemisphere</option>
-				<option value="northern">Northern</option>
-				<option value="southern">Southern</option>
-			</select>
-		</div>		
-	</fieldset>
-	<button>Submit</button>
+	<table class="auth-table">
+		<tr>
+			<td>
+				<label for="name">Island Name: </label>
+			</td>
+			<td>
+				<input type="text" name="name" id="name" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="fruit">Fruit: </label>
+			</td>
+			<td>
+				<select name="fruit" id="fruit">
+					<option value="" disabled selected>Select Fruit</option>
+					<% fruits.forEach( (fruit) => {%>
+						<option value="<%=fruit%>"><%= fruit %></option>
+					<% }) %>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="turnipPrice">Current Turnip Price</label>
+			</td>
+			<td>
+				<input type="number" name="turnipPrice" id="turnipPrice" value=0 />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="hemisphere">Hemisphere: </label>
+			</td>
+			<td>
+				<select name="hemisphere" id="hemisphere">
+					<option value ="" disabled selected>Select Hemisphere</option>
+					<option value="northern">Northern</option>
+					<option value="southern">Southern</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button>Submit</button>
+			</td>
+		</tr>
+	</table>
 </form>
 
 

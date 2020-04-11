@@ -67,7 +67,6 @@ router.get("/:id/pic", async (req, res, next) => {
       res.set("Content-Type", foundUser.profilePicture.contentType);
       res.send(foundUser.profilePicture.data);
     } else {
-      console.log("sending alternate")
       res.redirect("/assets/photos/profile-default.png")
     }
   } catch (err) {
