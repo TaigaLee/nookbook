@@ -25,7 +25,8 @@ const userSchema = new mongoose.Schema({
   hasPicture: {
     type: Boolean,
     default: false
-  }
+  },
+  status: String
 });
 
 const User = mongoose.model("User", userSchema);

@@ -1,0 +1,28 @@
+<%- include("../partials/header.ejs") %>
+
+<table class="auth-table">
+	<tr>
+		<td>
+			<h3>Update Your Status</h3>
+		</td>
+	</tr>
+	<form>
+		<tr>
+			<td>
+				<label for="status">Enter your status:</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<textarea name="status" id=status><%= currentStatus %></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button>Submit</button>
+			</td>
+		</tr>
+	</form>
+</table>
+
+<%- include("../partials/footer.ejs") %>

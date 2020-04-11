@@ -5,6 +5,21 @@ const multer = require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+// update status
+router.get("/status", async (req, res, next) => {
+  try {
+    if (req.session.loggedIn) {
+      const currentUser = await User.findById(req.session.userId)
+      res.render("user/status.ejs", {currentStatus: currentUser.status})
+    } else {
+      req.session.message = "You must be logged in to do that"
+      res.redirect("/auth/login")
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
 // search for users
 router.get("/search", async (req, res, next) => {
   try {
