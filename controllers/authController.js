@@ -71,4 +71,37 @@ router.get("/edit", (req, res) => {
   res.render("auth/edit.ejs")
 })
 
+router.put("/edit", async (req, res, next) => {
+  try {
+    const currentUser = await User.findById(req.session.userId)
+    const existingUser = await User.findOne({username: req.body.username})
+    if (existingUser && req.body.username !== currentUser.username) {
+      req.session.message = "Username already taken"
+      res.redirect("/auth/edit")
+    } else {
+      const validLogin = bcrypt.compareSync(req.body.password, currentUser.password)
+      if (validLogin) {
+        if (req.body.newPassword == req.body.verifyPassword) {
+          const salt = bcrypt.genSaltSync(10)
+          const password = bcrypt.hashSync(req.body.newPassword, salt)
+          await User.findByIdAndUpdate(currentUser._id, {
+            username: req.body.username,
+            password: password
+          })
+          req.session.message = "Username and password updated"
+          res.redirect("/user/edit")
+        } else {
+          req.session.message = "Passwords must match"
+          res.redirect("/auth/edit")
+        }
+      } else {
+        req.session.message = "Invalid password"
+        res.redirect("/auth/edit")
+      }
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router;

@@ -3,7 +3,7 @@
 <h2>Change Username/Password</h2>
 <h3><%= message %></h3>
 
-<form>
+<form method="POST" action="/auth/edit?_method=put">
 	<fieldset>
 		<div>
 			<label for="password">Enter Current Password:</label>
