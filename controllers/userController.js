@@ -41,7 +41,6 @@ router.get("/search", async (req, res, next) => {
     if (req.query.searchInfo) {
       const re = new RegExp(req.query.searchInfo, "i")
       foundUsers = await User.find({username: re})
-      console.log(foundUsers)
     }
     res.render("user/search.ejs", {searchResults: foundUsers})
   } catch (err){
@@ -168,11 +167,17 @@ router.get("/:id", async (req, res, next) => {
       const currentUser = await User.findById(req.session.userId);
       const friendList = currentUser.friends;
       const isFriend = friendList.indexOf(req.params.id) !== -1 ? true : false
+      const arrayOfFriends = []
+      for (let i = 0; i < user.friends.length; i++) {
+        const friendToAppend = await User.findById(user.friends[i])
+        arrayOfFriends.push(friendToAppend)
+      }
 
       res.render("user/show.ejs", {
         user: user,
         notcurrentUser: notcurrentUser,
-        isFriend: isFriend
+        isFriend: isFriend,
+        friends: arrayOfFriends
       });
     } else {
       req.session.message = "The user does not exist";

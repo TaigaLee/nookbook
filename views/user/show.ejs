@@ -23,11 +23,11 @@
     </form>
     </div>
 
-    <div class="friend"><h3>Friend</h3>
+    <div class="friend"><h3>Friends</h3>
     <ul>
-        <li>friend 1</li>
-        <li>friend 2</li>
-        <li> and more and more</li>
+        <% friends.forEach( (friend) => {%>
+            <li><%= friend.username %></li>
+        <% }) %>
     </ul>
     </div>
     <div class='post'>
