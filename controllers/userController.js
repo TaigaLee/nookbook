@@ -4,7 +4,7 @@ const User = require("../models/user");
 const multer = require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
-
+const RatingPicture = require("../models/ratingPicture")
 // update status
 router.get("/status", async (req, res, next) => {
   try {
@@ -173,11 +173,15 @@ router.get("/:id", async (req, res, next) => {
         arrayOfFriends.push(friendToAppend)
       }
 
+      console.log(user._id)
+      const posts = await RatingPicture.find({userId: user._id})
+
       res.render("user/show.ejs", {
         user: user,
         notcurrentUser: notcurrentUser,
         isFriend: isFriend,
-        friends: arrayOfFriends
+        friends: arrayOfFriends,
+        posts: posts
       });
     } else {
       req.session.message = "The user does not exist";

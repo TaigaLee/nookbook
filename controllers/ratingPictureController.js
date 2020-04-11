@@ -44,7 +44,8 @@ router.post("/new", upload.single("image"), async (req, res, next) => {
       image: {
         data: req.file.buffer,
         contentType: req.file.mimetype
-      }
+      },
+      userId: req.session.userId
     });
     res.redirect("/rating-pictures");
   } catch (err) {

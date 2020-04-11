@@ -21,7 +21,8 @@ const ratingPictureSchema = new mongoose.Schema({
   image: {
     data: Buffer,
     contentType: String
-  }
+  },
+  userId: String
 });
 
 const RatingPicture = mongoose.model("RatingPicture", ratingPictureSchema);
