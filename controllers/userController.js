@@ -63,8 +63,13 @@ router.post("/add-pic", upload.single("pic"), async (req, res, next) => {
 router.get("/:id/pic", async (req, res, next) => {
   try {
     const foundUser = await User.findById(req.params.id);
-    res.set("Content-Type", foundUser.profilePicture.contentType);
-    res.send(foundUser.profilePicture.data);
+    if (foundUser.userProfilePicture) {
+      res.set("Content-Type", foundUser.profilePicture.contentType);
+      res.send(foundUser.profilePicture.data);
+    } else {
+      console.log("sending alternate")
+      res.redirect("/assets/photos/profile-default.png")
+    }
   } catch (err) {
     next(err);
   }
