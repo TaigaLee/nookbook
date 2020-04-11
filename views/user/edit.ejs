@@ -5,16 +5,8 @@
 <a href="/island/<%= userToEdit.island.id%>/update">Update My Island</a> |
 <a href="/auth/edit">Change Username or Password</a>
 
-<form action="/auth/register" method="post">
+<form action="/user/edit?_method=put" method="post">
   <fieldset>
-    <div>
-      <label for="username">Username: </label>
-      <input type="text" name="username" id="username" placeholder="Desired Username">
-    </div>
-    <div>
-      <label for="password">Password: </label>
-      <input type="password" name="password" id="password" placeholder="Desired Password">
-    </div>
     <div>
       <label for="friendCode">Switch Friend Code: </label>
       <input type="text" name="friendCode" id="friendCode" placeholder="Friend Code">

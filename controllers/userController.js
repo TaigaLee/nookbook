@@ -88,7 +88,14 @@ router.get("/edit", async (req, res, next) => {
 }); // show edit ejs
 
 // put method
-router.put("/edit"); // edit route
+router.put("/edit", async (req, res, next) => {
+  try {
+    await User.findByIdAndUpdate(req.session.userId, req.body)
+    res.redirect("/user")
+  } catch (err) {
+    next(err)
+  }
+});
 
 // delete route
 router.delete("/", async (req, res, next) => {
