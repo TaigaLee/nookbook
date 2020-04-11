@@ -67,4 +67,8 @@ router.get("/logout", async (req, res) => {
   res.redirect("/")
 })
 
+router.get("/edit", (req, res) => {
+  res.render("auth/edit.ejs")
+})
+
 module.exports = router;
