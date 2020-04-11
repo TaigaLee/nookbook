@@ -156,3 +156,11 @@ h2 {
 h4.message {
   text-align: center;
 }
+
+div.status {
+  background-color: #f5c07b;
+  color: #a5601b;
+  border: 5px double #a5601b;
+  border-radius: 5px;
+  padding: 10px;
+}
