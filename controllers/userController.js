@@ -53,6 +53,7 @@ router.post("/add-pic", upload.single("pic"), async (req, res, next) => {
     const user = await User.findById(req.session.userId);
     user.profilePicture.data = req.file.buffer;
     user.profilePicture.contentType = req.file.mimetype;
+    user.hasPicture = true
     user.save();
     res.redirect("/user/edit");
   } catch (err) {
@@ -63,7 +64,7 @@ router.post("/add-pic", upload.single("pic"), async (req, res, next) => {
 router.get("/:id/pic", async (req, res, next) => {
   try {
     const foundUser = await User.findById(req.params.id).populate("island");
-    if (foundUser.userProfilePicture) {
+    if (foundUser.hasPicture) {
       res.set("Content-Type", foundUser.profilePicture.contentType);
       res.send(foundUser.profilePicture.data);
     } else {

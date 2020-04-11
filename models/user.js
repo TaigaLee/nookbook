@@ -21,7 +21,11 @@ const userSchema = new mongoose.Schema({
   location: String,
   friends: [{
     type: String
-  }]
+  }],
+  hasPicture: {
+    type: Boolean,
+    default: false
+  }
 });
 
 const User = mongoose.model("User", userSchema);
