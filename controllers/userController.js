@@ -20,6 +20,20 @@ router.get("/status", async (req, res, next) => {
   }
 })
 
+router.put("/status", async (req, res, next) => {
+  try {
+    if (req.session.loggedIn) {
+      await User.findByIdAndUpdate(req.session.userId, {status: req.body.status})
+      res.redirect("/user")
+    } else {
+      req.session.message = "You must be logged in to do that"
+      res.redirect("/auth/login")
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
 // search for users
 router.get("/search", async (req, res, next) => {
   try {

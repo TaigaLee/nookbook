@@ -6,7 +6,7 @@
 			<h3>Update Your Status</h3>
 		</td>
 	</tr>
-	<form>
+	<form method="POST" action="/user/status?_method=put">
 		<tr>
 			<td>
 				<label for="status">Enter your status:</label>
@@ -14,7 +14,7 @@
 		</tr>
 		<tr>
 			<td>
-				<textarea name="status" id=status><%= currentStatus %></textarea>
+				<textarea name="status" id="status"><%= currentStatus %></textarea>
 			</td>
 		</tr>
 		<tr>
