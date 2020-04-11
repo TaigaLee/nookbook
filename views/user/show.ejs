@@ -15,7 +15,7 @@
     </div>
 
     <div class=status>
-        <h4>Status: My island is on fire and is burning down!</h4>
+        <h4>Status: <%= user.status %></h4>
         <form action="/user/<%= user.id %>/add-friend?_method=PUT" method="post">
         <% if(notcurrentUser && loggedIn && !isFriend) { %>
         <button>Add Friend</button>
