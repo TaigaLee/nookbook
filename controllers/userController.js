@@ -75,7 +75,7 @@ router.get("/:id/pic", async (req, res, next) => {
 router.get("/edit", async (req, res, next) => {
   try {
     if (req.session.loggedIn) {
-      const userToEdit = await User.findOne({ username: req.session.username });
+      const userToEdit = await User.findById(req.session.userId);
       res.render("user/edit.ejs", {
         userToEdit: userToEdit
       });
