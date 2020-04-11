@@ -68,7 +68,6 @@ router.put("/:id", async (req, res, next) => {
     const ratingPicture = await RatingPicture.findById(req.params.id);
     ratingPicture.likes.push(req.session.userId);
     await ratingPicture.save();
-    console.log(ratingPicture);
     res.redirect("/rating-pictures");
   } catch (err) {
     next(err);
