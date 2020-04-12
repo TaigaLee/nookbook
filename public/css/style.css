@@ -164,3 +164,7 @@ div.status {
   border-radius: 5px;
   padding: 10px;
 }
+
+textarea.comment-box {
+  width: 100%;
+}
