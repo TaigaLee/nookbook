@@ -72,7 +72,12 @@ router.get("/:id/img", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const postToShow = await RatingPicture.findById(req.params.id).populate("user")
-    res.render("ratingPicture/show.ejs", {post: postToShow})
+    const commentsToShow = await Comment.find({post: postToShow}).populate("user")
+    console.log(commentsToShow)
+    res.render("ratingPicture/show.ejs", {
+      post: postToShow,
+      comments: commentsToShow
+    })
   } catch (err) {
     next(err)
   }

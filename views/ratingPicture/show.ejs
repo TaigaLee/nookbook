@@ -20,6 +20,16 @@
         <% if (loggedIn) {%>
         <a href="/rating-pictures/<%= post._id %>/comment">Leave a Comment</a>
         <% } %>
-    </div>
+    <% comments.forEach( (comment) => {%>
+    	<div class="card">
+    		<div class="card-header">
+    			<a href="/user/<%= comment.user._id %>"><%= comment.user.username %></a>
+    		</div>
+    		<div>
+    			<%= comment.text %>
+    		</div>
+    	</div>
+    <% }) %>
+</div>
 
 <%- include("../partials/footer.ejs")%>
