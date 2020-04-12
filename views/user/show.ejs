@@ -33,11 +33,15 @@
     <div class='post'>
         <h3>Posts</h3>
         <div class='post-content'>
-            <ul>
+            <div class="list-group">
+                <%console.log(posts)%>
                 <% posts.forEach( (post) => {%>
-                    <ul><a href="/rating-pictures/<%= post._id %>"><%= post.name %></a></ul>
+                    <a href="/rating-pictures/<%= post._id %>" class="list-group-item">
+                        <img src="/rating-pictures/<%= post._id %>/img" />
+                        <%= post.name %>                            
+                    </a>
                 <% }) %>
-            </ul>
+            </div>
         </div>
     </div>
 
