@@ -4,9 +4,11 @@ const multer = require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
+
 // models
 const User = require("../models/user");
 const RatingPicture = require("../models/ratingPicture");
+const Comment = require("../models/comment")
 
 // show index route
 router.get("/", async (req, res, next) => {
@@ -76,11 +78,31 @@ router.get("/:id", async (req, res, next) => {
   }
 })
 
+// comments
+
 router.get("/:id/comment", async (req, res, next) => {
   try {
     if (req.session.loggedIn) {
       const postToShow = await RatingPicture.findById(req.params.id).populate("user")
       res.render("comments/new.ejs", {post: postToShow})
+    } else {
+      req.session.message = "You must be logged in to do that."
+      res.redirect("/auth/login")
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
+router.post("/:id/comment", async (req, res, next) => {
+  try {
+    if (req.session.loggedIn) {
+      await Comment.create({
+        text: req.body.comment,
+        user: req.session.userId,
+        post: req.params.id
+      })
+      res.redirect("/rating-pictures/" + req.params.id)
     } else {
       req.session.message = "You must be logged in to do that."
       res.redirect("/auth/login")
