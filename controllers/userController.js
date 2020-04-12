@@ -172,10 +172,13 @@ router.get("/:id", async (req, res, next) => {
         req.session.username !== user.username ? true : false;
 
       // check if the viewing user is friend of the current user
-      const currentUser = await User.findById(req.session.userId);
-      const friendList = currentUser.friends;
-      const isFriend = friendList.indexOf(req.params.id) !== -1 ? true : false
-      const arrayOfFriends = []
+      let isFriend = false
+      if (req.session.loggedIn) {
+        const currentUser = await User.findById(req.session.userId);
+        const friendList = currentUser.friends;
+        isFriend = friendList.indexOf(req.params.id) !== -1 ? true : false
+      }
+      const arrayOfFriends = []      
       for (let i = 0; i < user.friends.length; i++) {
         const friendToAppend = await User.findById(user.friends[i])
         arrayOfFriends.push(friendToAppend)
