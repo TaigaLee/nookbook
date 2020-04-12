@@ -6,9 +6,11 @@
 
 
 <h2>Admin Controls</h2>
+<% if (item.user._id == userId) { %>
 <a href="/market/<%=item.id%>/edit">Edit</a>
 <form action="/market/<%= item.id %>?_method=delete" method="post">
   <button>Delete Item</button>
 </form>
+<% } %>
 
 <%- include("../partials/footer.ejs")%>
