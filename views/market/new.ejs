@@ -4,20 +4,33 @@
 <h3><%= message %></h3>
 
 <form method=POST action="/market/new">
-	<fieldset>
-		<div>
-			<label for="name">Item Name: </label>
-			<input type="text" name="name" id="name" />
-		</div>
-		<div>
-			<label for="price">Price: </label>
-      <input type="number" name="price" id="price">
-		</div>
-			<div>
+	<table class='market'>
+		<tr class="row">
+			<td class="col-sm">
+				<label for="name">Item Name: </label>
+			</td>
+			<td class="col-sm">
+				<input type="text" name="name" id="name">
+			</td>
+		</tr>
+		<tr class="row">
+			<td class="col-sm">
+				<label for="price">Price: </label>
+			</td>
+			<td class="col-sm">
+      			<input type="number" name="price" id="price">
+			</td>
+		</tr>
+		<tr class="row">
+			<td class="col-sm">
 				<label for="hot">Hot Item?</label>
+			</td>
+			<td class="col-sm">
 				<input type="checkbox" name="hot" id="hot">
-			</div>
-	</fieldset>
+			</td>
+		</tr>
+	</table>
+	
 	<button>Add Item</button>
 </form>
 
