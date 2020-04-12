@@ -64,6 +64,7 @@ app.use("/rating-pictures", ratingPictureController);
 const chatController = require("./controllers/chatController")
 app.use("/chat", chatController)
 
+
 app.get("/", (req, res) => {
   res.render("home.ejs");
 });

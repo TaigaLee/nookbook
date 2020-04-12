@@ -75,6 +75,21 @@ router.get("/:id", async (req, res, next) => {
     next(err)
   }
 })
+
+router.get("/:id/comment", async (req, res, next) => {
+  try {
+    if (req.session.loggedIn) {
+      const postToShow = await RatingPicture.findById(req.params.id).populate("user")
+      res.render("comments/new.ejs", {post: postToShow})
+    } else {
+      req.session.message = "You must be logged in to do that."
+      res.redirect("/auth/login")
+    }
+  } catch (err) {
+    next(err)
+  }
+})
+
 router.put("/:id", async (req, res, next) => {
   try {
     const ratingPicture = await RatingPicture.findById(req.params.id);

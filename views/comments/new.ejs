@@ -11,14 +11,19 @@
             
             <img src="/rating-pictures/<%= post._id %>/img" class='card-img-top'>
             <p>Likes: <%= post.likes.length %></p>
-            <% if(! post.likes.includes(userId)) { %>
-                <form action="/rating-pictures/<%= post._id %>?_method=put" method="post">
-                  <button>Like Picture</button>
-                </form>
-            <% } %>
         </div> 
         <% if (loggedIn) {%>
-        <a href="/rating-pictures/<%= post._id %>/comment">Leave a Comment</a>
+        <div class="card">
+        	<form method="POST" action="/rating-pictures/<%= post.id %>/comment">
+        		<div>
+        			<label for="comment">Leave a comment:</label>
+        		</div>
+        		<div>
+        			<textarea name="comment" id="comment" class="comment-box">Enter comment here</textarea>
+        		</div>
+        		<button>Submit</button>
+        	</form>
+        </div>
         <% } %>
     </div>
 
