@@ -31,9 +31,14 @@
     </ul>
     </div>
     <div class='post'>
-        <h3>Posts</h3>
+        <div class="card-header">
+            <h3>Posts</h3>
+        </div>
         <div class='post-content'>
             <div class="list-group">
+                <% if (posts.length === 0) {%>
+                    <p>This user hasn't posted anything yet!</p>
+                <% } %>
                 <% posts.forEach( (post) => {%>
                     <a href="/rating-pictures/<%= post._id %>" class="list-group-item">
                         <img src="/rating-pictures/<%= post._id %>/img" />
