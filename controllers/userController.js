@@ -10,7 +10,7 @@ router.get("/status", async (req, res, next) => {
   try {
     if (req.session.loggedIn) {
       const currentUser = await User.findById(req.session.userId)
-      res.render("user/status.ejs", {currentStatus: currentUser.status})
+      res.render("user/status.ejs", { currentStatus: currentUser.status })
     } else {
       req.session.message = "You must be logged in to do that"
       res.redirect("/auth/login")
@@ -23,7 +23,7 @@ router.get("/status", async (req, res, next) => {
 router.put("/status", async (req, res, next) => {
   try {
     if (req.session.loggedIn) {
-      await User.findByIdAndUpdate(req.session.userId, {status: req.body.status})
+      await User.findByIdAndUpdate(req.session.userId, { status: req.body.status })
       res.redirect("/user")
     } else {
       req.session.message = "You must be logged in to do that"
@@ -40,10 +40,10 @@ router.get("/search", async (req, res, next) => {
     let foundUsers = []
     if (req.query.searchInfo) {
       const re = new RegExp(req.query.searchInfo, "i")
-      foundUsers = await User.find({username: re})
+      foundUsers = await User.find({ username: re })
     }
-    res.render("user/search.ejs", {searchResults: foundUsers})
-  } catch (err){
+    res.render("user/search.ejs", { searchResults: foundUsers })
+  } catch (err) {
     next(err)
   }
 })
@@ -56,8 +56,16 @@ router.get("/", async (req, res, next) => {
         "island"
       );
       req.session.notcurrentUser = false;
+      const arrayOfFriends = []
+      for (let i = 0; i < currentUser.friends.length; i++) {
+        const friendToAppend = await User.findById(currentUser.friends[i])
+        arrayOfFriends.push(friendToAppend)
+      }
+      const posts = await RatingPicture.find({ userId: currentUser._id })
       res.render("user/show.ejs", {
-        user: currentUser
+        user: currentUser,
+        friends: arrayOfFriends,
+        posts: posts
       });
     } else {
       res.redirect("/auth/login");
@@ -145,14 +153,14 @@ router.delete("/", async (req, res, next) => {
 
 // show a list of current users
 router.get('/list', async (req, res, next) => {
-    try {
-        const users = await User.find({});
-        res.render("user/index.ejs", {
-          users: users
-        })
-    } catch (err) {
-        next(err);
-    }
+  try {
+    const users = await User.find({});
+    res.render("user/index.ejs", {
+      users: users
+    })
+  } catch (err) {
+    next(err);
+  }
 })
 // show other account profile
 router.get("/:id", async (req, res, next) => {
@@ -172,10 +180,7 @@ router.get("/:id", async (req, res, next) => {
         const friendToAppend = await User.findById(user.friends[i])
         arrayOfFriends.push(friendToAppend)
       }
-
-      console.log(user._id)
-      const posts = await RatingPicture.find({userId: user._id})
-
+      const posts = await RatingPicture.find({ userId: user._id })
       res.render("user/show.ejs", {
         user: user,
         notcurrentUser: notcurrentUser,
@@ -200,7 +205,7 @@ router.put("/:id/add-friend", async (req, res, next) => {
     await currentUser.save();
     res.redirect('/user/' + req.params.id)
   } catch (err) {
-      next(err);
+    next(err);
   }
 });
 
