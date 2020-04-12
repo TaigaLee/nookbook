@@ -11,7 +11,7 @@
             
             <img src="/rating-pictures/<%= post._id %>/img" class='card-img-top'>
             <p>Likes: <%= post.likes.length %></p>
-            <% if(! post.likes.includes(userId)) { %>
+            <% if(! post.likes.includes(userId) && loggedIn) { %>
                 <form action="/rating-pictures/<%= post._id %>?_method=put" method="post">
                   <button>Like Picture</button>
                 </form>

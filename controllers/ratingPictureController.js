@@ -73,7 +73,6 @@ router.get("/:id", async (req, res, next) => {
   try {
     const postToShow = await RatingPicture.findById(req.params.id).populate("user")
     const commentsToShow = await Comment.find({post: postToShow}).populate("user")
-    console.log(commentsToShow)
     res.render("ratingPicture/show.ejs", {
       post: postToShow,
       comments: commentsToShow
