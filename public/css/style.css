@@ -197,3 +197,17 @@ div.island-snapshot div.card {
   background-color: #f5c07b;
   color: #a5601b;
 }
+div.friend div.list-group a.list-group-item img{
+  width: 30px;
+  margin-right: 5px;
+}
+
+div.friend div.list-group a.list-group-item {
+  background-color: #f5c07b;
+  color: #a5601b;
+}
+
+div.friend {
+  background-color: #f5c07b;
+  color: #a5601b;
+}

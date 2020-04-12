@@ -24,12 +24,16 @@
     </div>
 
     <div class="friend"><h3>Friends</h3>
-    <ul>
+        <div class="list-group">
         <% friends.forEach( (friend) => {%>
-            <li><%= friend.username %></li>
+            <a href="/user/<%= friend._id %>" class="list-group-item">
+                <img src="/user/<%= friend._id %>/pic" />
+                <%= friend.username %>
+            </a>
         <% }) %>
-    </ul>
+        </div>
     </div>
+    
     <div class='post'>
         <div class="card-header">
             <h3>Posts</h3>
