@@ -53,6 +53,7 @@ router.post("/new", upload.single("image"), async (req, res, next) => {
   }
 });
 
+
 // render picture @ /rating-pictures/:id/img
 router.get("/:id/img", async (req, res, next) => {
   try {
@@ -64,6 +65,16 @@ router.get("/:id/img", async (req, res, next) => {
   }
 });
 
+// show route
+
+router.get("/:id", async (req, res, next) => {
+  try {
+    const postToShow = await RatingPicture.findById(req.params.id).populate("user")
+    res.render("ratingPicture/show.ejs", {post: postToShow})
+  } catch (err) {
+    next(err)
+  }
+})
 router.put("/:id", async (req, res, next) => {
   try {
     const ratingPicture = await RatingPicture.findById(req.params.id);

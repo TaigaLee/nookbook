@@ -1,0 +1,22 @@
+<%- include("../partials/header.ejs") %>
+
+<div class='rate-picture'>
+        <div class='card'>
+            
+                <div class="card-header">
+                    <h3>
+                    <%= post.name %>    
+                    </h3>
+                </div>
+            
+            <img src="/rating-pictures/<%= post._id %>/img" class='card-img-top'>
+            <p>Likes: <%= post.likes.length %></p>
+            <% if(! post.likes.includes(userId)) { %>
+                <form action="/rating-pictures/<%= post._id %>?_method=put" method="post">
+                  <button>Like Picture</button>
+                </form>
+            <% } %>
+        </div>
+    </div>
+
+<%- include("../partials/footer.ejs")%>
