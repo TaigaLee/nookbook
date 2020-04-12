@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <div class=status>
+    <div class="status">
         <h4>Status: <%= user.status %></h4>
         <form action="/user/<%= user.id %>/add-friend?_method=PUT" method="post">
         <% if(notcurrentUser && loggedIn && !isFriend) { %>
@@ -33,17 +33,32 @@
     <div class='post'>
         <h3>Posts</h3>
         <div class='post-content'>
-            <ul>
+            <div class="list-group">
+                <%console.log(posts)%>
                 <% posts.forEach( (post) => {%>
-                    <ul><a href="/rating-pictures/<%= post._id %>"><%= post.name %></a></ul>
+                    <a href="/rating-pictures/<%= post._id %>" class="list-group-item">
+                        <img src="/rating-pictures/<%= post._id %>/img" />
+                        <%= post.name %>                            
+                    </a>
                 <% }) %>
-            </ul>
+            </div>
         </div>
     </div>
 
-    <div class="island-snapshot">island snapshot</div>
-        <div>
-            
+    <div class="island-snapshot">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title"><%= user.island.name %></h3>
+            </div>
+            <div>
+                Native Fruit:&nbsp<%= user.island.fruit %>
+            </div>
+            <div>
+                Hemisphere:&nbsp<%= user.island.hemisphere %>
+            </div>
+            <div>
+                Current Turnip Price:&nbsp<%= user.island.turnipPrice%>
+            </div>
         </div>
     </div>
 </div>

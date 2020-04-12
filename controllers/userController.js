@@ -165,7 +165,7 @@ router.get('/list', async (req, res, next) => {
 // show other account profile
 router.get("/:id", async (req, res, next) => {
   try {
-    const user = await User.findById(req.params.id);
+    const user = await User.findById(req.params.id).populate("island");
     if (user) {
       // check if the viewing user is the current user
       const notcurrentUser =
@@ -183,7 +183,7 @@ router.get("/:id", async (req, res, next) => {
         const friendToAppend = await User.findById(user.friends[i])
         arrayOfFriends.push(friendToAppend)
       }
-      const posts = await RatingPicture.find({ userId: user._id })
+      const posts = await RatingPicture.find({ user: user._id })
       res.render("user/show.ejs", {
         user: user,
         notcurrentUser: notcurrentUser,

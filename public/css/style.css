@@ -168,3 +168,21 @@ div.status {
 textarea.comment-box {
   width: 100%;
 }
+div.post-content div.list-group a.list-group-item{
+  background-color: #f5c07b;
+  color: #a5601b;
+}
+div.post-content div.list-group a.list-group-item img{
+  width: 100px;
+  margin-right: 5px;
+}
+
+div.island-snapshot {
+  background-color: #f5c07b;
+  color: #a5601b;
+}
+
+div.island-snapshot div.card {
+  background-color: #f5c07b;
+  color: #a5601b;
+}
