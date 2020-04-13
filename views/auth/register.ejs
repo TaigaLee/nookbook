@@ -4,7 +4,11 @@
   
 <h2>Register an Account</h2>
 
-<h3><%= message %></h3>
+<% if (message) {%>
+  <div class="message-box">
+    <%= message %>
+  </div>
+<% } %>
 
 <form action="/auth/register" method="post">
   <table class='auth-table'>
