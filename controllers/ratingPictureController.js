@@ -124,10 +124,10 @@ router.get("/:id/comment", async (req, res, next) => {
   }
 });
 
-router.post("/:id/comment", async (req, res, next) => {
+router.post("/:id/:commentId", async (req, res, next) => {
   try {
     if (req.session.loggedIn) {
-      await Comment.create({
+      const createdComment = await Comment.create({
         text: req.body.comment,
         user: req.session.userId,
         post: req.params.id
@@ -137,6 +137,20 @@ router.post("/:id/comment", async (req, res, next) => {
       req.session.message = "You must be logged in to do that.";
       res.redirect("/auth/login");
     }
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.delete("/:id/:commentId", async (req, res, next) => {
+  try {
+    const commentToDelete = await Comment.findById(req.params.commentId);
+    if (req.session.userId == commentToDelete.user._id) {
+      const deletedComment = await Comment.findByIdAndDelete(
+        req.params.commentId
+      );
+    }
+    res.redirect("/rating-pictures/" + req.params.id);
   } catch (err) {
     next(err);
   }
