@@ -11,7 +11,11 @@
 <table class="auth-table">
   <tr>
     <td>
+      <% if (userToEdit.island) {%>
       <a href="/island/<%= userToEdit.island._id %>/update">Update My Island</a> &nbsp |
+      <% } else { %>
+      <a href="/island/new">Add My Island</a> &nbsp |
+      <% } %>
     </td>
     <td>
       <a href="/auth/edit">Change Username or Password</a>
