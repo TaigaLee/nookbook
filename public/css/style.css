@@ -113,8 +113,12 @@ div.rate-picture div.card img.card-img-top {
 }
 
 /* item-for-sale */
+div#market-index {
+  display: flex;
+}
 div#items {
   width: 45%;
+  margin-right: 5%;
 }
 div#items div.list-group div.list-group-item {
   background-color: #a5601b;
@@ -132,6 +136,15 @@ div.item-for-sale a {
 div.item-for-sale a:hover {
   text-decorate: underline;
 }
+
+div#turnip {
+  width: 45%;
+  padding: auto 5px;
+}
+table#turnip {
+  width: 100%;
+}
+
 
 div#user-index div.list-group a.list-group-item {
   background-color: #f5c07b;

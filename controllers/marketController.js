@@ -10,7 +10,7 @@ const upload = multer({ storage: storage });
 router.get("/", async (req, res, next) => {
   try {
     const foundItems = await Item.find().populate("user");
-    const islands = await Island.find();
+    const islands = await Island.find().sort({ turnipPrice: -1 }).limit(10);
     for (let i = 0; i < islands.length; i++) {
       const islandOwner = await User.findOne({ island: islands[i]._id });
       islands[i].owner = islandOwner;
