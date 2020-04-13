@@ -9,8 +9,8 @@
 <% } %>
 
 <% if (loggedIn) {%>
-	<div>
-		<a href="/market/new">Sell an Item</a>
+	<div class="sell-item">
+		<button id="sell-item"><a href="/market/new">Sell an Item</a></button>
 	</div>
 <% } %>
 <div id='market-index'>
@@ -23,11 +23,15 @@
                     <p><%= item.name %></p>
                     <p>Seller: <%= item.user.username %></p>
                     <p>For: <%= item.price %> Bells</p>
+                    <% if(item.hot === true) { %>
+                      <p>HOT 🔥</p>
+                    <% } %>
                 </div>
             </a>
         </div>
     <% }) %>
 </div>
+
 <div id="turnip">
     <h2>Turnip Prices: </h2>
     <table id='turnip'>
@@ -53,6 +57,7 @@
         </tbody>
     </table>
 </div>
+
 </div>
 
 

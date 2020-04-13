@@ -296,3 +296,15 @@ div.message-box {
   padding-top: 25px;
   color: green;
 }
+
+.sell-item {
+  display: flex;
+}
+
+#sell-item {
+  justify-content: center;
+  padding: 5px 8px;
+  margin: 10px auto;
+  border-radius: 25px;
+  background-color: gold;
+}
