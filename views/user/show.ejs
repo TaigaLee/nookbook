@@ -12,6 +12,8 @@
     <a href="/user/edit">Edit My Profile</a>
     <% if (user.island) {%>
     <a href="/island/<%= user.island._id%>/update">Update My Island</a>
+    <% } else { %>
+    <a href="/island/new">Add My Island</a>
     <% } %>
     <a href="/user/status">Update My Status</a>
     <a href="/chat/<%= userId %>">My Chat Room</a>
