@@ -6,17 +6,22 @@
 	</div>
 <% } %>
 
-<h2><%= item.name %></h2>
+<div class="item-info">
+	<h2><%= item.name %></h2>
 
-<h3>Price: <%= item.price %></h3>
+	<h3>Price: <%= item.price %></h3>
 
+	<h3>User to contact: <a href="/user/<%= item.user._id %>"><%=item.user.username %></a></h3>
+</div>
 
-<h2>Admin Controls</h2>
-<% if (item.user._id == userId) { %>
-<a href="/market/<%=item.id%>/edit">Edit</a>
-<form action="/market/<%= item.id %>?_method=delete" method="post">
-  <button>Delete Item</button>
-</form>
-<% } %>
+<div class="admin">
+	<h4>Admin Controls</h4>
+	<% if (item.user._id == userId) { %>
+		<a href="/market/<%=item.id%>/edit">Edit</a>
+		<form action="/market/<%= item.id %>?_method=delete" method="post">
+			<button>Delete Item</button>
+		</form>
+		<% } %>
+</div>
 
 <%- include("../partials/footer.ejs")%>

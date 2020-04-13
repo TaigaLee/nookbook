@@ -1,6 +1,6 @@
 <%- include("../partials/header.ejs") %>
 
-<h2>Welcome to the Marketplace!</h2>
+<h2 class="item-header">Welcome to the Marketplace!</h2>
 
 <% if (message) { %>
     <div class="message-box">
@@ -13,9 +13,10 @@
 		<button id="sell-item"><a href="/market/new">Sell an Item</a></button>
 	</div>
 <% } %>
+
 <div id='market-index'>
 <div id="items">
-    <h2>Items</h2>
+    <h2 class="item-header">Items</h2>
     <% items.forEach((item) => { %>
         <div class="list-group">
             <a href="/market/<%= item.id %>">
@@ -33,7 +34,7 @@
 </div>
 
 <div id="turnip">
-    <h2>Turnip Prices: </h2>
+    <h2 class="item-header">Turnip Prices: </h2>
     <table id='turnip'>
         <thead>
             <tr class="row">
@@ -50,7 +51,7 @@
                     <td class="col-md"><%= island.name %></td>
                     <td class="col-md"><a href="/user/<%= island.owner._id %>">
                             <%= island.owner.username %>
-                        </a></td>   
+                        </a></td>
                 </tr>
                 <% } %>
             <% }) %>

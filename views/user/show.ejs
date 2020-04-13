@@ -8,10 +8,10 @@
 
 <% if(!notcurrentUser) { %>
 <div class='user-auth'>
-    <a href="/user/add-pic">Add Profile Picture</a>
-    <a href="/user/edit">Edit My Profile</a>
-    <a href="/island/<%= user.island.id%>/update">Update My Island</a>
-    <a href="/user/status">Update My Status</a>
+    <a href="/user/add-pic">Add Profile Picture</a> |
+    <a href="/user/edit">Edit My Profile</a> |
+    <a href="/island/<%= user.island.id%>/update">Update My Island</a> |
+    <a href="/user/status">Update My Status</a> |
     <a href="/chat/<%= userId %>">My Chat Room</a>
 </div>
 <% } %>
@@ -46,7 +46,7 @@
         <% }) %>
         </div>
     </div>
-    
+
     <div class='post'>
         <div class="card-header">
             <h3>Posts</h3>
@@ -59,7 +59,7 @@
                 <% posts.forEach( (post) => {%>
                     <a href="/rating-pictures/<%= post._id %>" class="list-group-item">
                         <img src="/rating-pictures/<%= post._id %>/img" />
-                        <%= post.name %>                            
+                        <%= post.name %>
                     </a>
                 <% }) %>
             </div>

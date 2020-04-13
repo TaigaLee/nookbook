@@ -74,6 +74,10 @@ div.profile {
   margin: 2%;
   margin-right: 8%;
   width: 25%;
+  background-color: #f5c07b;
+  color: #a5601b;
+  border: 5px double #a5601b;
+  border-radius: 5px;
 }
 div.profile div.card {
   border: none;
@@ -89,13 +93,21 @@ div.friend {
   margin: 2%;
 }
 div.post {
-  border: 2px solid black;
-  width: 60%;
+  background-color: #f5c07b;
+  color: #a5601b;
+  border: 5px double #a5601b;
+  border-radius: 5px;
+  padding: 10px;
+  width: 61%;
   margin: 2%;
 }
 div.island-snapshot {
-  border: 2px solid black;
-  width: 90%;
+  background-color: #f5c07b;
+  color: #a5601b;
+  border: 5px double #a5601b;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
   margin: 2%;
 }
 img.profile-pic {
@@ -126,6 +138,7 @@ div#items div.list-group div.list-group-item {
   justify-content: space-around;
   color: gold;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 div.item-for-sale a {
@@ -140,11 +153,11 @@ div.item-for-sale a:hover {
 div#turnip {
   width: 45%;
   padding: auto 5px;
+  margin-bottom: 20px;
 }
 table#turnip {
   width: 100%;
 }
-
 
 div#user-index div.list-group a.list-group-item {
   background-color: #f5c07b;
@@ -154,6 +167,8 @@ div#user-index div.list-group a.list-group-item img {
   margin-right: 5px;
 }
 ul#chat-window {
+  margin: 0px auto;
+  margin-top: 20px;
   list-style: none;
   width: 80%;
   height: 400px;
@@ -227,6 +242,9 @@ div.friend div.list-group a.list-group-item {
 div.friend {
   background-color: #f5c07b;
   color: #a5601b;
+  border: 5px double #a5601b;
+  border-radius: 5px;
+  padding: 10px;
 }
 
 div.message-box {
@@ -336,5 +354,27 @@ header {
 
 .find {
   color: green;
+  text-align: center;
+}
+
+.user-auth {
+  text-align: center;
+}
+
+.item-header {
+  color: green;
+}
+
+.admin {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.item-info {
+  text-align: center;
+}
+
+#message-form {
+  margin-top: 25px;
   text-align: center;
 }
