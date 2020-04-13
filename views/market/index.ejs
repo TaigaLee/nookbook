@@ -14,29 +14,34 @@
 	</div>
 <% } %>
 
-
+<div id="items">
     <% items.forEach((item) => { %>
-        <div class="item-for-sale">
-            <div class="card">
-                <div class="card-header">
-                    <h4><a href="/market/<%= item.id %>"><%= item.name %></a></h4>
+        <div class="list-group">
+            <a href="/market/<%= item.id %>">
+                <div class="list-group-item">
+                    <p><%= item.name %></p>
+                    <p>Seller: <%= item.user.username %></p>
+                    <p>For: <%= item.price %> Bells</p>
                 </div>
-            <p>Seller: <a href="/user/<%= item.user.id %>"><%= item.user.username %></a></p>
-            <p>For: <%= item.price %> Bells</p>
-            </div>
+            </a>
         </div>
     <% }) %>
-
+</div>
+<div class="turnip">
 <h2>Turnip Prices: </h2>
     <% islands.forEach((island) => { %>
         <% if(island.turnipPrice > 0) { %>
-        <h2>Island name: <%= island.name %></h2>
-        <h3>Island owner: <a href="/user/<%= island.owner._id %>">
-            <%= island.owner.username %></h3>
-        </a>
-        <h3>Turnip price: <%= island.turnipPrice %> </h3>
-    <% } %>
+            <h2>Island name: <%= island.name %></h2>
+            <h3>Island owner: 
+                <a href="/user/<%= island.owner._id %>">
+                    <%= island.owner.username %>
+                </a>
+            </h3>
+            <h3>Turnip price: <%= island.turnipPrice %> </h3>
+        <% } %>
     <% }) %>
+    
+</div>
 
 
 <%- include("../partials/footer.ejs")%>

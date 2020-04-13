@@ -30,12 +30,11 @@
 
     <nav>
       <a href="/">Home</a> |
+      <a href="/market">Marketplace</a><% if (loggedIn) {%> |
       <a href="/user/search">Find User</a> |
-      <a href="/market">Marketplace</a> |
-      <a href="/rating-pictures">Rate Pictures</a><% if (loggedIn) {%>
+      <a href="/rating-pictures">Rate Pictures</a>
         |
-        <a href="/chat">Chat</a> |
-        <a href="/user/status">Update My Status</a>
+        <a href="/chat/global">Chat</a>
       <% } %>
     </nav>
 

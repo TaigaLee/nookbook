@@ -90,7 +90,6 @@ router.get("/friends-posts", async (req, res, next) => {
         friendsPosts.push(friendPictures[i]);
       }
     }
-    console.log(friendsPosts);
     res.render("user/friends-posts.ejs", {
       posts: friendsPosts
     });
