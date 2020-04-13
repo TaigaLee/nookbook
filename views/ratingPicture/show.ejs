@@ -31,6 +31,7 @@
     		<div class="card-header">
     			<a href="/user/<%= comment.user._id %>"><%= comment.user.username %></a>
     		</div>
+            <small><%= comment.date.toLocaleString() %></small>
     		<div>
     			<%= comment.text %>
     		</div>
