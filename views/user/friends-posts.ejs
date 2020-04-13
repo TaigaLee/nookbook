@@ -1,0 +1,31 @@
+<%- include("../partials/header.ejs") %>
+
+<h2>Your Friends Posts: </h2>
+
+<div>
+<% posts.forEach((post) => { %>
+    <div class='rating-picture'>
+        <div class='card'>
+            <a href="/rating-pictures/<%=post._id %>">
+                <div class="card-header">
+                    <h3>
+                    <%= post.name %>
+                    </h3>
+                </div>
+            </a>
+            <a href="/user/<%= post.user._id %>">
+                <h2><%= post.user.username %></h2>
+            </a>
+            <img src="/rating-pictures/<%=post._id %>/img" class='card-img-top'>
+            <p>Likes: <%= post.likes.length %></p>
+            <% if(! post.likes.includes(userId) && loggedIn) { %>
+                <form action="/rating-pictures/<%= post._id %>?_method=put" method="post">
+                  <button>Like Picture</button>
+                </form>
+            <% } %>
+        </div>
+    </div>
+<% }) %>
+</div>
+
+<%- include("../partials/footer.ejs")%>

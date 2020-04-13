@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/user");
 const Item = require("../models/item");
+const Island = require("../models/island");
 const multer = require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
@@ -9,9 +10,15 @@ const upload = multer({ storage: storage });
 router.get("/", async (req, res, next) => {
   try {
     const foundItems = await Item.find().populate("user");
+    const islands = await Island.find();
+    for (let i = 0; i < islands.length; i++) {
+      const islandOwner = await User.findOne({ island: islands[i]._id });
+      islands[i].owner = islandOwner;
+    }
     res.render("market/index.ejs", {
       items: foundItems,
-      userId: req.session.userId
+      userId: req.session.userId,
+      islands: islands
     });
   } catch (err) {
     next(err);

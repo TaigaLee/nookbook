@@ -1,6 +1,6 @@
 <%- include("../partials/header.ejs") %>
 
-<h2>this page shows a list of pictures to rate</h2>
+<h2>Rate Other People's Outfits and Islands!</h2>
 
 <% if (message) { %>
     <div class="message-box">
@@ -10,7 +10,7 @@
 
 <% if(loggedIn) { %>
 <a href="/rating-pictures/new">Add Something To Rate</a>
-<% } %> 
+<% } %>
 
 <ul>
     <% pictures.forEach((picture) => { %>
@@ -19,7 +19,7 @@
             <a href="/rating-pictures/<%=picture._id %>">
                 <div class="card-header">
                     <h3>
-                    <%= picture.name %>    
+                    <%= picture.name %>
                     </h3>
                 </div>
             </a>

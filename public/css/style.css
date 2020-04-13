@@ -1,6 +1,7 @@
 body {
   background-color: #5bd6ba;
   font-family: "Acme", sans-serif;
+  color: #93301b;
 }
 
 a {
@@ -212,14 +213,15 @@ div.friend {
 }
 
 div.message-box {
-  display: inline-block;
+  text-align: center;
+  width: 75%;
   background-color: #a5601b;
   color: gold;
   border: 5px double gold;
   border-radius: 5px;
   padding: 10px;
   font-size: 1.5rem;
-  margin: 10px;
+  margin: 10px auto;
 }
 
 #nook-leaf {
