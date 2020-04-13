@@ -14,15 +14,21 @@ const ratingPictureSchema = new mongoose.Schema({
     type: String,
     enum: ["outfit", "island"]
   },
-  likes: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  }],
+  likes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    }
+  ],
   image: {
     data: Buffer,
     contentType: String
   },
-  userId: String
+  userId: String,
+  datePosted: {
+    type: Date,
+    default: Date.now
+  }
 });
 
 const RatingPicture = mongoose.model("RatingPicture", ratingPictureSchema);

@@ -1,19 +1,9 @@
 <%- include("../partials/header.ejs") %>
 
-<a href="/rating-pictures/outfits">Outfits</a> |
-<a href="/rating-pictures/islands">Islands</a>
+<a href="/rating-pictures/">All</a> |
+<a href="/rating-pictures/islands">Islands</a> |
 
-<h2>Rate Other People's Outfits and Islands!</h2>
-
-<% if (message) { %>
-    <div class="message-box">
-        <%= message %>
-    </div>
-<% } %>
-
-<% if(loggedIn) { %>
-<a href="/rating-pictures/new">Add Something To Rate</a>
-<% } %>
+<h2>Check Out People's Outfits!</h2>
 
 <ul>
     <% pictures.forEach((picture) => { %>
