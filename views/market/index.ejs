@@ -13,8 +13,9 @@
 		<a href="/market/new">Sell an Item</a>
 	</div>
 <% } %>
-
+<div id='market-index'>
 <div id="items">
+    <h2>Items</h2>
     <% items.forEach((item) => { %>
         <div class="list-group">
             <a href="/market/<%= item.id %>">
@@ -27,20 +28,31 @@
         </div>
     <% }) %>
 </div>
-<div class="turnip">
-<h2>Turnip Prices: </h2>
-    <% islands.forEach((island) => { %>
-        <% if(island.turnipPrice > 0) { %>
-            <h2>Island name: <%= island.name %></h2>
-            <h3>Island owner: 
-                <a href="/user/<%= island.owner._id %>">
-                    <%= island.owner.username %>
-                </a>
-            </h3>
-            <h3>Turnip price: <%= island.turnipPrice %> </h3>
-        <% } %>
-    <% }) %>
-    
+<div id="turnip">
+    <h2>Turnip Prices: </h2>
+    <table id='turnip'>
+        <thead>
+            <tr class="row">
+                <td class="col-md">Price</td>
+                <td class="col-md">Island</td>
+                <td class="col-md">Island Owner</td>
+            </tr>
+        </thead>
+        <tbody>
+            <% islands.forEach((island) => { %>
+                <% if(island.turnipPrice > 0) { %>
+                <tr class="row">
+                    <td class="col-md">$<%= island.turnipPrice %></td>
+                    <td class="col-md"><%= island.name %></td>
+                    <td class="col-md"><a href="/user/<%= island.owner._id %>">
+                            <%= island.owner.username %>
+                        </a></td>   
+                </tr>
+                <% } %>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
 </div>
 
 
