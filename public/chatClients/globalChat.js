@@ -8,5 +8,5 @@ $( "#message-form" ).submit( (e) => {
 })
 
 socket.on("chat global", (msg) => {
-	$( "#chat-window" ).append($("<li>").text(msg))
+	$( "#chat-window" ).prepend($("<li>").text(msg))
 })
