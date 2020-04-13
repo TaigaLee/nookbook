@@ -1,4 +1,15 @@
 </div>
+<% if (loggedIn) { %>
+<div class="bottom-bar">
+	<ul class="mini-chat">
+		
+	</ul>
+	<script>
+		const currentUser = "<%= userId %>"
+	</script>
+	<script src="/chatClients/miniClient.js"></script>
+</div>
+<% } %>
 <footer>
   <small>Created by Cliff Chen, Matt Keane, and Taiga Lee</small>
 </footer>
