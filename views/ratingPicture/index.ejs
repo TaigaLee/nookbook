@@ -1,9 +1,12 @@
 <%- include("../partials/header.ejs") %>
 
-<a href="/rating-pictures/outfits">Outfits</a> |
-<a href="/rating-pictures/islands">Islands</a>
+<h2 class="post-text">Check Out People's Outfits and Islands!</h2>
 
-<h2>Rate Other People's Outfits and Islands!</h2>
+<div class="pictures-index">
+  <a href="/rating-pictures/outfits">Outfits</a> |
+  <a href="/rating-pictures/islands">Islands</a>
+</div>
+
 
 <% if (message) { %>
     <div class="message-box">
@@ -12,7 +15,7 @@
 <% } %>
 
 <% if(loggedIn) { %>
-<a href="/rating-pictures/new">Add Something To Rate</a>
+    <button id="post-picture"><a href="/rating-pictures/new">Post Something!</a></button>
 <% } %>
 
 <ul>

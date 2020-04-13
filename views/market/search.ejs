@@ -6,8 +6,8 @@
     </div>
 <% } %>
 
-<h3>Find an Item:</h3>
-<form>
+<h3 class="find">Find an Item:</h3>
+<form class="search">
 	<label for="searchInfo">Find Item:</label>
 	<input type="search" name="searchInfo" id="searchInfo" />
 	<button>Search</button>
@@ -17,12 +17,14 @@
     <div class="list-group">
 	<% searchResults.forEach( (result) => {%>
         <div class="list-group-item">
-            <a href="/market/<%= result._id %>">
-                <%= result.name %>
-            </a>
-            <a href="/user/<%= result.user._id %>">
-                <%= result.user.username %>
-            </a>
+            <div>
+                <a href="/market/<%= result._id %>">
+                    <%= result.name %>
+                </a>
+                <a href="/user/<%= result.user._id %>">
+                    <%= result.user.username %>
+                </a>
+            </div>
         </div>
 	<% }) %>
     </div>

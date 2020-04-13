@@ -42,7 +42,7 @@ nav.auth {
 }
 
 nav.auth a {
-  color: green;
+  color: gold;
 }
 
 footer {
@@ -294,4 +294,34 @@ div.message-box {
   margin: 10px auto;
   border-radius: 25px;
   background-color: gold;
+}
+
+header {
+  background-color: rgba(11, 102, 35, 0.5);
+}
+
+.pictures-index {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.post-text {
+  background-color: gold;
+  border: 1px solid green;
+}
+
+#post-picture {
+  display: block;
+  margin: 15px auto;
+  border-radius: 25px;
+}
+
+.search {
+  text-align: center;
+  color: green;
+}
+
+.find {
+  color: green;
+  text-align: center;
 }
