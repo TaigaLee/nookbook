@@ -24,14 +24,16 @@
         <% } %>
   </nav>
 
-    <h1>NookBook 🍃</h1>
+  <div>
+    <a href="/" id="nookbook"><h1>NookBook<img id="nook-leaf" src="https://i.imgur.com/1PDMvhd.png"></h1></a>
+  </div>
 
     <nav>
       <a href="/">Home</a> |
       <a href="/user/search">Find User</a> |
       <a href="/user/list">List</a> |
       <a href="/market">Marketplace</a> |
-      <a href="/rating-pictures">Rate Pictures</a><% if (loggedIn) {%> 
+      <a href="/rating-pictures">Rate Pictures</a><% if (loggedIn) {%>
         |
         <a href="/chat">Chat</a> |
         <a href="/user/status">Update My Status</a>
