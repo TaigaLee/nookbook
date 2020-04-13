@@ -7,9 +7,10 @@
 <% } %>
 
 <% if(!loggedIn) { %>
-	<h2>Connect with your Animal Crossing friends, sell items, show off your outfits and homes, and check turnip prices!</h2>
-	<img src="https://image-cdn.essentiallysports.com/wp-content/uploads/20200330121733/animal-crossing-new-horizons-garden-background-800x400.jpg" id="home-picture">
-	<a href="/auth/register"><h3>Sign up now!</h3></a>
+	<h2 id="home-text">Connect with your Animal Crossing friends, sell items, show off your outfits and homes, and check turnip prices!</h2>
+	<img src="https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/PCTYWZK5SRE7ZPILD2B37JBQGM.jpg" id="home-picture">
+	<a href="/auth/register"><h3 id="sign-up-now">Sign up now!</h3></a>
 <% } %>
+
 
 <%- include("./partials/footer.ejs") %>

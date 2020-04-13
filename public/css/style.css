@@ -1,11 +1,11 @@
 body {
-  background-color: #5bd6ba;
+  background: url(https://wallpaperaccess.com/full/1236351.jpg);
   font-family: "Acme", sans-serif;
   color: #93301b;
 }
 
 a {
-  color: black;
+  color: green;
 }
 
 a:hover {
@@ -37,12 +37,12 @@ nav a:hover {
 }
 
 nav.auth {
-  background-color: #5bd6ba;
+  background-color: rgba(255, 0, 0, 0);
   text-align: right;
 }
 
 nav.auth a {
-  color: black;
+  color: green;
 }
 
 footer {
@@ -153,7 +153,6 @@ ul#chat-window {
   flex-direction: column-reverse;
 }
 
-
 h2 {
   text-align: center;
 }
@@ -252,4 +251,26 @@ div.message-box {
   color: #a5601b;
   height: 100px;
   width: 250px;
+}
+
+#home-picture {
+  width: 100%;
+  border-radius: 25px;
+}
+
+#nookbook-logo {
+  color: gold;
+  font-size: 4rem;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: green;
+}
+
+#home-text {
+  color: green;
+}
+
+#sign-up-now {
+  text-align: center;
+  padding-top: 25px;
+  color: green;
 }

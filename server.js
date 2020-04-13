@@ -33,9 +33,9 @@ app.use((req, res, next) => {
 });
 
 io.on("connection", socket => {
-  socket.on('chat global', (msg) => {
-    io.emit('chat global', msg);
-  })
+  socket.on("chat global", msg => {
+    io.emit("chat global", msg);
+  });
   socket.on("join", chatOwner => {
     socket.join(chatOwner);
   });
