@@ -14,21 +14,21 @@
 </form>
 
 <div id="item-index">
-    <div class="list-group">
+    <div class='container'>
 	<% searchResults.forEach( (result) => {%>
-        <div class="list-group-item">
-            <div>
-                <a href="/market/<%= result._id %>">
-                    <%= result.name %>
-                </a>
-                <a href="/user/<%= result.user._id %>">
-                    <%= result.user.username %>
-                </a>
+        <div class="row">
+            <div class='col'><a href="/market/<%= result._id %>">
+                <%= result.name %></a>
             </div>
+            <div class='col'> <a href="/user/<%= result.user._id %>">
+               <%= result.user.username %></a>
+            </div>
+            <div class='col'>$<%= result.price %></div>
         </div>
 	<% }) %>
     </div>
 </div>
+
 
 
 <%- include("../partials/footer.ejs") %>

@@ -50,7 +50,7 @@ footer {
   min-height: 15vh;
 }
 
-div.container {
+div#body {
   padding: 1% 10%;
   min-height: 60vh;
 }
@@ -158,6 +158,17 @@ div#turnip {
 table#turnip {
   width: 100%;
 }
+<<<<<<< HEAD
+=======
+div#item-index div.container{
+  background-color: #f5c07b;
+  width: 100%;
+  text-align: center;
+}
+div#item-index div.row {
+  border-bottom: 1px solid black;
+}
+>>>>>>> 15802cee12068aff6c6779ee1c8021c453647b7e
 
 div#user-index div.list-group a.list-group-item {
   background-color: #f5c07b;
