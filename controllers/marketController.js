@@ -29,6 +29,19 @@ router.get("/new", (req, res) => {
   res.render("market/new.ejs");
 });
 
+router.get("/search", async (req, res, next) => {
+  try {
+    let foundItems = [];
+    if (req.query.searchInfo) {
+      const re = new RegExp(req.query.searchInfo, "i");
+      foundItems = await Item.find({ name: re }).populate("user");
+    }
+    res.render("market/search.ejs", { searchResults: foundItems });
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get("/:id", async (req, res, next) => {
   try {
     const foundItem = await Item.findById(req.params.id).populate("user");

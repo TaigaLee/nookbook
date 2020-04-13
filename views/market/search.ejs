@@ -6,20 +6,24 @@
     </div>
 <% } %>
 
-<h3>Find a User:</h3>
+<h3>Find an Item:</h3>
 <form>
-	<label for="searchInfo">Find User:</label>
+	<label for="searchInfo">Find Item:</label>
 	<input type="search" name="searchInfo" id="searchInfo" />
 	<button>Search</button>
 </form>
 
-<div id="user-index">
+<div id="item-index">
     <div class="list-group">
 	<% searchResults.forEach( (result) => {%>
-        <a href="/user/<%= result._id %>" class="list-group-item">
-            <img src="/user/<%= result._id %>/pic">
-            <%= result.username %>
-        </a>
+        <div class="list-group-item">
+            <a href="/market/<%= result._id %>">
+                <%= result.name %>
+            </a>
+            <a href="/user/<%= result.user._id %>">
+                <%= result.user.username %>
+            </a>
+        </div>
 	<% }) %>
     </div>
 </div>
