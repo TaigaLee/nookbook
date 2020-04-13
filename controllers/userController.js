@@ -164,6 +164,8 @@ router.put("/edit", async (req, res, next) => {
 // delete route
 router.delete("/", async (req, res, next) => {
   try {
+    const friendsToDelete = await User.find({friends: req.session.userId})
+    console.log(friendsToDelete)
     const deletedUser = await User.deleteOne({
       username: req.session.username
     });
