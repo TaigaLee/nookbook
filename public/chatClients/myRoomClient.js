@@ -10,5 +10,5 @@ $("#message-form").submit((e) => {
 })
 
 socket.on("chat message", (msg) => {
-  $("#chat-window").append($("<li>").text(msg))
+  $("#chat-window").prepend($("<li>").text(msg))
 })
