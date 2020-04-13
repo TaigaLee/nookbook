@@ -149,7 +149,11 @@ ul#chat-window {
   border: 5px double #a5601b;
   border-radius: 5px;
   color: #a5601b;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column-reverse;
 }
+
 
 h2 {
   text-align: center;
