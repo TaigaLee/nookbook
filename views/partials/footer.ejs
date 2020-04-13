@@ -1,13 +1,19 @@
 </div>
 <% if (loggedIn) { %>
-<div class="bottom-bar">
-	<ul class="mini-chat">
-		
-	</ul>
-	<script>
-		const currentUser = "<%= userId %>"
-	</script>
-	<script src="/chatClients/miniClient.js"></script>
+<div id="bottom-box">
+	<div id="bottom-bar">
+		<nav id="bottom-nav">
+			<a href="/chat/<%= userId%>">Go To My Chat</a>
+		</nav>
+		<ul class="mini-chat">
+			
+		</ul>
+
+		<script>
+			const currentUser = "<%= userId %>"
+		</script>
+		<script src="/chatClients/miniClient.js"></script>
+	</div>
 </div>
 <% } %>
 <footer>

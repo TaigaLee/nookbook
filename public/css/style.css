@@ -237,12 +237,13 @@ div.message-box {
   text-decoration: none;
   color: black;
 }
-.bottom-bar {
+#bottom-bar {
   display: flex;
-  flex-direction: row;
-  position: fixed;
-  bottom: 0px;
-  right: 0px;
+  flex-direction: column;
+}
+
+#bottom-bar nav {
+  border-radius: 5px;
 }
 
 .mini-chat {
@@ -250,6 +251,14 @@ div.message-box {
   border: 5px double #a5601b;
   border-radius: 5px;
   color: #a5601b;
-  height: 100px;
+  height: 50px;
   width: 250px;
+  list-style: none;
+}
+
+#bottom-box {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
 }
