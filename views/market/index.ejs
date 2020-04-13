@@ -9,8 +9,8 @@
 <% } %>
 
 <% if (loggedIn) {%>
-	<div>
-		<a href="/market/new">Sell an Item</a>
+	<div class="sell-item">
+		<button id="sell-item"><a href="/market/new">Sell an Item</a></button>
 	</div>
 <% } %>
 
@@ -22,6 +22,9 @@
                     <p><%= item.name %></p>
                     <p>Seller: <%= item.user.username %></p>
                     <p>For: <%= item.price %> Bells</p>
+                    <% if(item.hot === true) { %>
+                      <p>HOT 🔥</p>
+                    <% } %>
                 </div>
             </a>
         </div>
@@ -32,7 +35,7 @@
     <% islands.forEach((island) => { %>
         <% if(island.turnipPrice > 0) { %>
             <h2>Island name: <%= island.name %></h2>
-            <h3>Island owner: 
+            <h3>Island owner:
                 <a href="/user/<%= island.owner._id %>">
                     <%= island.owner.username %>
                 </a>
@@ -40,7 +43,7 @@
             <h3>Turnip price: <%= island.turnipPrice %> </h3>
         <% } %>
     <% }) %>
-    
+
 </div>
 
 
