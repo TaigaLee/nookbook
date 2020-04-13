@@ -3,4 +3,5 @@ miniSocket.emit('join', currentUser);
 
 miniSocket.on("chat message", (msg) => {
   $(".mini-chat").prepend($("<li>").text(msg))
+  $("#bottom-box").slideDown()
 })
