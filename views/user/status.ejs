@@ -1,5 +1,11 @@
 <%- include("../partials/header.ejs") %>
 
+<% if (message) { %>
+	<div class="message-box">
+		<%= message %>
+	</div>
+<% } %>
+
 <table class="auth-table">
 	<tr>
 		<td>

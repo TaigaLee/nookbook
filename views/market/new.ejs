@@ -1,7 +1,11 @@
 <%- include("../partials/header.ejs") %>
 <h2>New Item Form</h2>
 
-<h3><%= message %></h3>
+<% if (message) { %>
+	<div class="message-box">
+		<%= message %>
+	</div>
+<% } %>
 
 <form method=POST action="/market/new">
 	<table class='market'>

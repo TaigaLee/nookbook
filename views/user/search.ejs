@@ -1,5 +1,11 @@
 <%- include("../partials/header.ejs") %>
 
+<% if (message) { %>
+    <div class="message-box">
+        <%= message %>
+    </div>
+<% } %>
+
 <h3>Find a User:</h3>
 <form>
 	<label for="searchInfo">Find User:</label>

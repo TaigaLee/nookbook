@@ -1,6 +1,12 @@
 <%- include("../partials/header.ejs") %>
 
-<h2>this page shows a list of users</h2>
+<h2>List of Users</h2>
+
+<% if (message) { %>
+	<div class="message-box">
+		<%= message %>
+	</div>
+<% } %>
 
 <div id='user-index'>
 <div class="list-group">

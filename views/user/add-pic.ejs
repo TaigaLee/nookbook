@@ -2,6 +2,12 @@
 
 <h2>add profile picture</h2>
 
+<% if (message) { %>
+	<div class="message-box">
+		<%= message %>
+	</div>
+<% } %>
+
 <form method="POST" action="/user/add-pic" enctype="multipart/form-data">
 	<fieldset>
 		<label for="pic">Upload Photo:</label>

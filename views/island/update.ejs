@@ -1,5 +1,11 @@
 <%- include("../partials/header.ejs") %>
 
+<% if (message) { %>
+	<div class="message-box">
+		<%= message %>
+	</div>
+<% } %>
+
 <h2>Update Your Island</h2>
 <form method="POST" action="/island/<%= island.id %>?_method=PUT">
 	<fieldset>

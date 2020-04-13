@@ -1,7 +1,12 @@
 <%- include("../partials/header.ejs") %>
 
 <h2>Change Username/Password</h2>
-<h3><%= message %></h3>
+
+<% if (message) { %>
+	<div class="message-box">
+		<%= message %>
+	</div>
+<% } %>
 
 <form method="POST" action="/auth/edit?_method=put">
 	<table class="auth-table">

@@ -2,6 +2,12 @@
 
 <h2>Welcome to the Marketplace!</h2>
 
+<% if (message) { %>
+    <div class="message-box">
+        <%= message %>
+    </div>
+<% } %>
+
 <% if (loggedIn) {%>
 	<div>
 		<a href="/market/new">Sell an Item</a>

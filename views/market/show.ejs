@@ -1,5 +1,11 @@
 <%- include("../partials/header.ejs") %>
 
+<% if (message) { %>
+	<div class="message-box">
+		<%= message %>
+	</div>
+<% } %>
+
 <h2><%= item.name %></h2>
 
 <h3>Price: <%= item.price %></h3>

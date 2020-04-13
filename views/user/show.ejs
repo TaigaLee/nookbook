@@ -1,4 +1,11 @@
 <%- include("../partials/header.ejs") %>
+
+<% if (message) { %>
+    <div class="message-box">
+        <%= message %>
+    </div>
+<% } %>
+
 <% if(!notcurrentUser) { %>
 <div class='user-auth'>
     <a href="/user/add-pic">add profile picture</a>

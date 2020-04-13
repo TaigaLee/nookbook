@@ -1,7 +1,11 @@
 <%- include("./partials/header.ejs") %>
 
+<% if (message) { %>
+	<div class="message-box">
+		<%= message %>
+	</div>
+<% } %>
 <p>Hi welcome to our site</p>
 
-<p><%= message %></p>
 
 <%- include("./partials/footer.ejs") %>

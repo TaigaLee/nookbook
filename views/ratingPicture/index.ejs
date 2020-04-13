@@ -2,6 +2,12 @@
 
 <h2>this page shows a list of pictures to rate</h2>
 
+<% if (message) { %>
+    <div class="message-box">
+        <%= message %>
+    </div>
+<% } %>
+
 <% if(loggedIn) { %>
 <a href="/rating-pictures/new">Add Something To Rate</a>
 <% } %> 

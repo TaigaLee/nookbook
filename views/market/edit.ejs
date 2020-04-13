@@ -2,7 +2,11 @@
 
 <h2>Edit Item Form</h2>
 
-<h3><%= message %></h3>
+<% if (message) { %>
+	<div class="message-box">
+		<%= message %>
+	</div>
+<% } %>
 
 <form method=POST action="/market/<%= item.id %>?_method=put">
 	<fieldset>

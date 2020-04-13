@@ -2,6 +2,12 @@
 
 <h2>New Post</h2>
 
+<% if (message) { %>
+    <div class="message-box">
+        <%= message %>
+    </div>
+<% } %>
+
 <form method="POST" action="/rating-pictures/new" enctype="multipart/form-data">
     <fieldset>
         <label for="name">Name:</label>

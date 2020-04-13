@@ -1,5 +1,11 @@
 <%- include("../partials/header.ejs") %>
 
+<% if (message) { %>
+	<div class="message-box">
+		<%= message %>
+	</div>
+<% } %>
+
 <div class='rate-picture'>
         <div class='card'>
             
