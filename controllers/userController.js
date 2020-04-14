@@ -5,6 +5,8 @@ const multer = require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 const RatingPicture = require("../models/ratingPicture");
+const Comment = require("../models/comment")
+
 // update status
 router.get("/status", async (req, res, next) => {
   try {
@@ -169,6 +171,10 @@ router.delete("/", async (req, res, next) => {
       const indexToSplice = friendsToDelete[i].friends.indexOf(req.session.userId)
       friendsToDelete[i].friends.splice(indexToSplice, 1)
       await friendsToDelete[i].save()
+    }
+    const commentsToDelete = Comment.find({user: req.session.userId})
+    for (let i = 0; i < commentsToDelete.length; i++) {
+      await Comment.findByIdAndDelete(commentsToDelete[i]._id)
     }
     const deletedUser = await User.deleteOne({
       username: req.session.username

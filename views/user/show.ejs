@@ -8,12 +8,14 @@
 
 <% if(!notcurrentUser) { %>
 <div class='user-auth'>
-<<<<<<< HEAD
     <a href="/user/add-pic">Add Profile Picture</a> |
     <a href="/user/edit">Edit My Profile</a> |
+    <% if (user.island) {%>
     <a href="/island/<%= user.island.id%>/update">Update My Island</a> |
+    <% } else { %>
+    <a href="/island/new">Add My Island</a> |
+    <% } %>
     <a href="/user/status">Update My Status</a> |
-=======
     <a href="/user/add-pic">Add Profile Picture</a>
     <a href="/user/edit">Edit My Profile</a>
     <% if (user.island) {%>
@@ -22,7 +24,6 @@
     <a href="/island/new">Add My Island</a>
     <% } %>
     <a href="/user/status">Update My Status</a>
->>>>>>> 15802cee12068aff6c6779ee1c8021c453647b7e
     <a href="/chat/<%= userId %>">My Chat Room</a>
 </div>
 <% } %>
