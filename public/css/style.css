@@ -1,5 +1,8 @@
 body {
-  background: url(https://wallpaperaccess.com/full/1236351.jpg);
+  background-image: url(https://wallpaperaccess.com/full/1236351.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
   font-family: "Acme", sans-serif;
   color: #93301b;
 }
