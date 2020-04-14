@@ -39,6 +39,7 @@ nav a:hover {
 nav.auth {
   background-color: rgba(255, 0, 0, 0);
   text-align: right;
+  padding-bottom: 0px;
 }
 
 nav.auth a {
@@ -46,7 +47,9 @@ nav.auth a {
 }
 
 footer {
+  position: relative;
   text-align: center;
+  margin: 0 auto;
   min-height: 15vh;
 }
 
@@ -116,12 +119,23 @@ img.profile-pic {
 
 /* rate-picture */
 div.rate-picture div.card {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 15px;
   background-color: #f5c07b;
+  width: 45%;
 }
 
 div.rate-picture div.card img.card-img-top {
   height: 100%;
+}
+
+div.rate-picture button {
+  border-radius: 25px;
+  color: gold;
+  background-color: green;
+  margin-bottom: 15px;
 }
 
 /* item-for-sale */
@@ -158,9 +172,7 @@ div#turnip {
 table#turnip {
   width: 100%;
 }
-<<<<<<< HEAD
-=======
-div#item-index div.container{
+<<<<<<< head ======= div#item-index div.container {
   background-color: #f5c07b;
   width: 100%;
   text-align: center;
@@ -168,9 +180,10 @@ div#item-index div.container{
 div#item-index div.row {
   border-bottom: 1px solid black;
 }
->>>>>>> 15802cee12068aff6c6779ee1c8021c453647b7e
-
-div#user-index div.list-group a.list-group-item {
+>>>>>>>15802cee12068aff6c6779ee1c8021c453647b7e
+  div#user-index
+  div.list-group
+  a.list-group-item {
   background-color: #f5c07b;
 }
 div#user-index div.list-group a.list-group-item img {
@@ -304,26 +317,36 @@ div.message-box {
   right: 0px;
 }
 
+.home-screen {
+  display: flex;
+  flex-direction: column;
+}
+
 #home-picture {
-  width: 100%;
+  width: 60%;
   border-radius: 25px;
+  align-self: center;
 }
 
 #nookbook-logo {
   color: gold;
-  font-size: 4rem;
+  font-size: 3.8rem;
   -webkit-text-stroke-width: 3px;
   -webkit-text-stroke-color: green;
 }
 
 #home-text {
+  align-self: center;
   color: green;
+  width: 60%;
 }
 
 #sign-up-now {
   text-align: center;
   padding-top: 25px;
-  color: green;
+  color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: green;
 }
 
 .sell-item {
@@ -348,6 +371,8 @@ header {
 }
 
 .post-text {
+  margin: 0px auto 10px auto;
+  width: 50%;
   background-color: gold;
   border: 1px solid green;
 }
@@ -388,4 +413,19 @@ header {
 #message-form {
   margin-top: 25px;
   text-align: center;
+}
+
+#created-by {
+  color: gold;
+  background-color: green;
+}
+
+.likes {
+  margin-top: 10px;
+}
+
+.usershow {
+  width: 53%;
+  margin-left: auto;
+  margin-right: auto;
 }

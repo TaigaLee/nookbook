@@ -31,7 +31,7 @@
             </a>
             <small><%= picture.datePosted.toLocaleString() %></small>
             <img src="/rating-pictures/<%=picture._id %>/img" class='card-img-top'>
-            <p>Likes: <%= picture.likes.length %></p>
+            <p class="likes">Likes: <%= picture.likes.length %></p>
             <% if(! picture.likes.includes(userId) && loggedIn) { %>
                 <form action="/rating-pictures/<%= picture._id %>?_method=put" method="post">
                   <button>Like Picture</button>
