@@ -11,12 +11,17 @@ router.get("/new", async (req, res, next) => {
 // create island route
 router.post('/new', async (req, res, next) => {
     try {
-        // check if you already have an island in the current login accout 
-        const newIsland = await Island.create(req.body)
-        const currentUser = await User.findById(req.session.userId)
-        currentUser.island = newIsland
-        await currentUser.save()
-        res.redirect('/user/edit')
+        // check if you already have an island in the current login accout
+        if (req.body.name && req.body.fruit && req.body.turnipPrice >= 0 && req.body.hemisphere) {
+            const newIsland = await Island.create(req.body)
+            const currentUser = await User.findById(req.session.userId)
+            currentUser.island = newIsland
+            await currentUser.save()
+            res.redirect('/user/edit')
+        } else {
+            req.session.message = "All fields must be complete"
+            res.redirect("/island/new")
+        }
     } catch (err) {
         next(err)
     }
