@@ -106,6 +106,15 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
+router.delete("/:id", async (req, res, next) => {
+  try {
+    await RatingPicture.findByIdAndDelete(req.params.id);
+    res.redirect("/rating-pictures");
+  } catch (err) {
+    next(err);
+  }
+});
+
 // comments
 
 router.get("/:id/comment", async (req, res, next) => {

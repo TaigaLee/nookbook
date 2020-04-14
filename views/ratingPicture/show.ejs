@@ -1,48 +1,63 @@
 <%- include("../partials/header.ejs") %>
 
 <% if (message) { %>
-	<div class="message-box">
-		<%= message %>
-	</div>
+<div class="message-box">
+  <%= message %>
+</div>
 <% } %>
 
 <div class='rate-picture'>
-        <div class='card'>
+  <div class='card'>
 
-                <div class="card-header">
-                    <h3>
-                    <%= post.name %>
-                    </h3>
-                    <a href="/user/<%= post.user._id%>"><h5 id="post-username"><%= post.user.username %></h5></a>
-                </div>
+    <div class="card-header">
+      <h3>
+        <%= post.name %>
+      </h3>
+      <a href="/user/<%= post.user._id%>">
+        <h5 id="post-username"><%= post.user.username %></h5>
+      </a>
+    </div>
 
-            <img src="/rating-pictures/<%= post._id %>/img" class='card-img-top'>
-            <p>Likes: <%= post.likes.length %></p>
-            <% if(! post.likes.includes(userId) && loggedIn) { %>
-                <form action="/rating-pictures/<%= post._id %>?_method=put" method="post">
-                  <button>Like Picture</button>
-                </form>
-            <% } %>
-        </div>
-        <% if (loggedIn) {%>
-        <a href="/rating-pictures/<%= post._id %>/comment" id="leave-comment">Leave a Comment</a>
-        <% } %>
-    <% comments.forEach( (comment) => {%>
-    	<div class="card">
-    		<div class="card-header">
-    			<a href="/user/<%= comment.user._id %>"><%= comment.user.username %></a>
-    		</div>
-            <small><%= comment.date.toLocaleString() %></small>
-    		<div>
-    			<%= comment.text %>
-    		</div>
-        <% if(userId == comment.user._id) { %>
-            <form action="/rating-pictures/<%= post.id %>/<%= comment.id %>?_method=delete" method="post">
-                <button>Delete Comment</button>
-            </form>
-        <% } %>
-    	</div>
-    <% }) %>
+    <img src="/rating-pictures/<%= post._id %>/img" class='card-img-top'>
+    <p>Likes: <%= post.likes.length %></p>
+    <% if(! post.likes.includes(userId) && loggedIn) { %>
+    <form action="/rating-pictures/<%= post._id %>?_method=put" method="post">
+      <button>Like Picture</button>
+    </form>
+    <% } %>
+  </div>
+
+  <div class="admin">
+    <% if (post.user._id == userId) { %>
+    <h4>Admin Controls</h4>
+    <form action="/rating-pictures/<%= post._id %>?_method=delete" method="post">
+      <button>Delete Post</button>
+    </form>
+    <% } %>
+  </div>
+
+
+  <% if (loggedIn) {%>
+  <a href="/rating-pictures/<%= post._id %>/comment" id="leave-comment">Leave a Comment</a>
+  <% } %>
+  <% comments.forEach( (comment) => {%>
+  <div class="card">
+    <div class="card-header">
+      <a href="/user/<%= comment.user._id %>"><%= comment.user.username %></a>
+    </div>
+    <small><%= comment.date.toLocaleString() %></small>
+    <div>
+      <%= comment.text %>
+    </div>
+    <% if(userId == comment.user._id) { %>
+    <form action="/rating-pictures/<%= post.id %>/<%= comment.id %>?_method=delete" method="post">
+      <button>Delete Comment</button>
+    </form>
+    <% } %>
+  </div>
+  <% }) %>
 </div>
+
+
 
 <%- include("../partials/footer.ejs")%>
