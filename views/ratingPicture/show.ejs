@@ -13,6 +13,7 @@
                     <h3>
                     <%= post.name %>
                     </h3>
+                    <a href="/user/<%= post.user._id%>"><h5 id="post-username"><%= post.user.username %></h5></a>
                 </div>
 
             <img src="/rating-pictures/<%= post._id %>/img" class='card-img-top'>
@@ -24,7 +25,7 @@
             <% } %>
         </div>
         <% if (loggedIn) {%>
-        <a href="/rating-pictures/<%= post._id %>/comment">Leave a Comment</a>
+        <a href="/rating-pictures/<%= post._id %>/comment" id="leave-comment">Leave a Comment</a>
         <% } %>
     <% comments.forEach( (comment) => {%>
     	<div class="card">

@@ -9,37 +9,37 @@
 
 
 <% if (message) { %>
-    <div class="message-box">
-        <%= message %>
-    </div>
+<div class="message-box">
+  <%= message %>
+</div>
 <% } %>
 
 <% if(loggedIn) { %>
-    <button id="post-picture"><a href="/rating-pictures/new">Post Something!</a></button>
+<button id="post-picture"><a href="/rating-pictures/new">Post Something!</a></button>
 <% } %>
 
 <ul>
-    <% pictures.forEach((picture) => { %>
-    <div class='rate-picture'>
-        <div class='card'>
-            <a href="/rating-pictures/<%=picture._id %>">
-                <div class="card-header">
-                    <h3>
-                    <%= picture.name %>
-                    </h3>
-                </div>
-            </a>
-            <small><%= picture.datePosted.toLocaleString() %></small>
-            <img src="/rating-pictures/<%=picture._id %>/img" class='card-img-top'>
-            <p class="likes">Likes: <%= picture.likes.length %></p>
-            <% if(! picture.likes.includes(userId) && loggedIn) { %>
-                <form action="/rating-pictures/<%= picture._id %>?_method=put" method="post">
-                  <button>Like Picture</button>
-                </form>
-            <% } %>
+  <% pictures.forEach((picture) => { %>
+  <div class='rate-picture'>
+    <div class='card'>
+      <a href="/rating-pictures/<%=picture._id %>">
+        <div class="card-header">
+          <h3>
+            <%= picture.name %>
+          </h3>
         </div>
+      </a>
+      <small><%= picture.datePosted.toLocaleString() %></small>
+      <img src="/rating-pictures/<%=picture._id %>/img" class='card-img-top'>
+      <p class="likes">Likes: <%= picture.likes.length %></p>
+      <% if(! picture.likes.includes(userId) && loggedIn) { %>
+      <form action="/rating-pictures/<%= picture._id %>?_method=put" method="post">
+        <button>Like Picture</button>
+      </form>
+      <% } %>
     </div>
-    <% }) %>
+  </div>
+  <% }) %>
 </ul>
 
 <%- include("../partials/footer.ejs")%>
