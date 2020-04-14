@@ -429,3 +429,24 @@ header {
   margin-left: auto;
   margin-right: auto;
 }
+
+.market {
+  margin: 1px auto;
+}
+
+#add-item button {
+  display: block;
+  margin: 1px auto;
+  border-radius: 25px;
+  color: green;
+}
+
+.newpost {
+  text-align: center;
+}
+
+.newpost button {
+  border-radius: 25px;
+  margin-top: 10px;
+  color: green;
+}
