@@ -176,6 +176,10 @@ router.delete("/", async (req, res, next) => {
     for (let i = 0; i < commentsToDelete.length; i++) {
       await Comment.findByIdAndDelete(commentsToDelete[i]._id)
     }
+    const postsToDelete = await RatingPicture.find({user: req.session.userId})
+    for (let i = 0; i < postsToDelete.length; i++) {
+      const deleted = await RatingPicture.findByIdAndDelete(postsToDelete[i]._id)
+    }
     const deletedUser = await User.deleteOne({
       username: req.session.username
     });
